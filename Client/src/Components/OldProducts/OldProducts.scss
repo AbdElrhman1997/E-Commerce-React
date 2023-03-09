@@ -1,0 +1,24 @@
+.old-products {
+  justify-items: center;
+  div {
+    .Swiper {
+      width: 350px;
+      .swiper-scrollbar {
+        height: 8px;
+        background-color: transparent;
+      }
+      .swiper-scrollbar-drag {
+        height: 8px;
+        background-color: transparent !important;
+        width: 30% !important;
+        margin-left: 10%;
+      }
+      .swiper-button-next::after, .swiper-button-prev::after {
+        content: "";
+      }
+      &:hover .swiper-scrollbar-drag {
+        background-color: rgb(214, 214, 214) !important;
+      }
+    }
+  }
+}

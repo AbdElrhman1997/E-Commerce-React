@@ -1,0 +1,12 @@
+.side {
+  position: sticky;
+  top: 30px;
+  .side-bar {
+    height: fit-content;
+    padding: 20px 20px 5px 20px ;
+    border: 1px solid hsl(0, 0%, 91%);
+    width: 270px;
+    // transform: translateY(-7%);
+    border-radius: 10px;
+  }
+}

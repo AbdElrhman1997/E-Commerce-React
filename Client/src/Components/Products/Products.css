@@ -1,0 +1,25 @@
+.products {
+  margin: 40px auto;
+}
+.products div {
+  justify-items: center;
+}
+.products div div .Swiper {
+  width: 350px;
+}
+.products div div .Swiper .swiper-scrollbar {
+  height: 8px;
+  background-color: transparent;
+}
+.products div div .Swiper .swiper-scrollbar-drag {
+  height: 8px;
+  background-color: transparent !important;
+  width: 30% !important;
+  margin-left: 10%;
+}
+.products div div .Swiper .swiper-button-next::after, .products div div .Swiper .swiper-button-prev::after {
+  content: "";
+}
+.products div div .Swiper:hover .swiper-scrollbar-drag {
+  background-color: rgb(214, 214, 214) !important;
+}/*# sourceMappingURL=Products.css.map */

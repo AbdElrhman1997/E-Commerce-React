@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CarouselItem from "../CarouselItem/CarouselItem";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
@@ -11,14 +11,7 @@ import ctgItem6 from "../../Assets/Imgs/Carousel6.svg";
 import ctgItem7 from "../../Assets/Imgs/Carousel7.svg";
 import ctgItem8 from "../../Assets/Imgs/Carousel8.svg";
 
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  A11y,
-  EffectFade,
-  Grid,
-} from "swiper";
+import { Navigation, Scrollbar, A11y, EffectFade, Grid } from "swiper";
 
 import "swiper/scss";
 import "swiper/css/bundle";
@@ -75,7 +68,7 @@ const Carousel = () => {
         keyboard={true}
         mousewheel={true}
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true, hide: true }}
+        scrollbar={{ draggable: true }}
         grabCursor={false}
         speed={200}
         navigation={true}
@@ -83,9 +76,7 @@ const Carousel = () => {
         //   this.scrollbar.hide = false;
         // }}
       >
-        <button onClick={() => swiper.slidePrev()}>
-          Slide to the next slide
-        </button>
+        <button onClick={() => swiper.slidePrev()}></button>
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
             <CarouselItem
@@ -95,9 +86,7 @@ const Carousel = () => {
             />
           </SwiperSlide>
         ))}
-        <button onClick={() => swiper.slideNext()}>
-          Slide to the next slide
-        </button>
+        <button onClick={() => swiper.slideNext()}></button>
       </Swiper>
     </section>
   );

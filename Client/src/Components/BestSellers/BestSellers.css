@@ -1,0 +1,8 @@
+.best-sellers {
+  color: hsl(0, 0%, 27%);
+}
+.best-sellers div img {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+}/*# sourceMappingURL=BestSellers.css.map */

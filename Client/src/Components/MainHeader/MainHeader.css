@@ -1,0 +1,37 @@
+.main-header {
+  padding: 15px;
+  border-bottom: 1px solid rgb(237, 237, 237);
+}
+.main-header .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-header .container img {
+  width: 8rem;
+  margin: 14px;
+}
+.main-header .container p {
+  font-weight: bold;
+  font-size: 36px;
+}
+.main-header .container .input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid rgb(237, 237, 237);
+  padding: 8px 15px;
+}
+.main-header .container input {
+  display: block;
+  font-size: 16px;
+  color: #787878;
+}
+.main-header .container .icons {
+  width: 15%;
+  justify-content: space-between;
+  font-size: 32px;
+  color: #707070;
+  margin: 14px;
+}/*# sourceMappingURL=MainHeader.css.map */

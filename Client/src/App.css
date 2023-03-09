@@ -5,11 +5,13 @@
   padding: 0;
   margin: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   height: 5000px;
   overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
-}
+  font-family: "Poppins", sans-serif;
+}/*# sourceMappingURL=App.css.map */

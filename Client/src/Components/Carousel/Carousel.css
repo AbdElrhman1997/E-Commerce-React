@@ -1,0 +1,40 @@
+.category {
+  margin: 40px auto;
+}
+.category .Swiper {
+  height: 100px;
+}
+.category .Swiper .swiper-scrollbar {
+  height: 8px;
+  background-color: transparent;
+}
+.category .Swiper .swiper-scrollbar-drag {
+  height: 8px;
+  background-color: transparent !important;
+}
+.category .Swiper .swiper-button-prev {
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid rgb(54, 54, 54);
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid black;
+  transform: rotate(315deg) translateX(-8px);
+}
+.category .Swiper .swiper-button-next {
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid rgb(54, 54, 54);
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid rgb(54, 54, 54);
+  transform: rotate(135deg) translateY(-6px);
+}
+.category .Swiper .swiper-button-next::after, .category .Swiper .swiper-button-prev::after {
+  content: "";
+}
+.category .Swiper:hover .swiper-scrollbar-drag {
+  background-color: rgb(214, 214, 214) !important;
+}/*# sourceMappingURL=Carousel.css.map */

@@ -6,7 +6,7 @@ import MainNav from "./Components/MainNav/MainNav";
 import TopHeader from "./Components/TopHeader/TopHeader";
 import MobileNav from "./Components/MoblieNav/MobileNav";
 import Carousel from "./Components/Carousel/Carousel";
-import CarouselItem from "./Components/CarouselItem/CarouselItem";
+import Products from "./Components/Products/Products";
 function App() {
   return (
     <main>
@@ -16,6 +16,7 @@ function App() {
       <Banner />
       <MobileNav />
       <Carousel />
+      <Products />
     </main>
   );
 }

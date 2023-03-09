@@ -1,0 +1,43 @@
+.side-bar {
+  width: 50%;
+}
+.side-bar .catgory-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 19px 0;
+  cursor: pointer;
+}
+.side-bar .catgory-head div {
+  display: flex;
+}
+.side-bar img {
+  width: 20px;
+}
+.side-bar .dropdown {
+  border-top: 1px solid hsl(0, 0%, 80%);
+  height: 1px;
+  display: block;
+  transition: height 0.5s ease-in-out;
+  -webkit-transition: height 0.5s ease-in-out;
+  margin-top: -10px;
+  padding-bottom: 8px;
+}
+.side-bar .dropdown li {
+  transition: height 0.5s ease-in-out;
+  -webkit-transition: height 0.5s ease-in-out;
+  margin: 5px 0;
+  color: #787878;
+  display: flex;
+  justify-content: space-between;
+}
+.side-bar .fadeUp {
+  display: none;
+  transition: height 0.5s ease-in-out;
+  -webkit-transition: height 0.5s ease-in-out;
+}
+.side-bar .fadeDown {
+  transition: height 0.5s ease-in-out;
+  -webkit-transition: height 0.5s ease-in-out;
+  display: block;
+  height: 100%;
+}/*# sourceMappingURL=SideBarItem.css.map */

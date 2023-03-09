@@ -1,0 +1,37 @@
+nav {
+  padding: 4px 0;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin: auto;
+  padding: 10px 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+nav ul li {
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+nav ul li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1.5px;
+  width: 0;
+  border-radius: 4px;
+  background-color: #ff8f9c;
+  transition: 0.2s linear all;
+  -webkit-transition: 0.2s ease-in-out all;
+  -moz-transition: color 0.5s linear;
+  -o-transition: color 0.5s linear;
+}
+nav ul li:hover {
+  color: #ff8f9c;
+}
+nav ul li:hover::before {
+  width: 100%;
+}/*# sourceMappingURL=MainNav.css.map */
