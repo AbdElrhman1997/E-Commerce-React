@@ -1,0 +1,33 @@
+.our-services {
+  width: 23%;
+  margin: 40px 0;
+
+  & > div {
+    padding:10px 35px;
+    border: 1px solid hsl(0, 0%, 93%);
+    border-radius: 6px;
+    min-height: 360px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .service {
+    align-items: center;
+    margin: 15px 0;
+    span {
+      p:first-child {
+        font-size: 14.5px;
+      }
+      p:last-child {
+        font-size: 13px;
+      }
+    }
+  }
+  img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 10px auto; 
+  }
+  @media (max-width:1024px) {
+    width: 100%;
+  }
+}

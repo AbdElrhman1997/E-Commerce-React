@@ -5,11 +5,35 @@
   padding: 0;
   margin: 0;
 }
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+::selection {
+  color: #ff8f9c;
+  background: #787878;
+}
+
 html {
   scroll-behavior: smooth;
 }
 body {
-  height: 5000px;
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
+  padding-bottom: 400px;
 }

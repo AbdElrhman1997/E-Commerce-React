@@ -1,0 +1,19 @@
+.testimonial {
+  width: 23%;
+  margin: 40px 0;
+  div {
+    padding:25px 45px 20px;
+    text-align: center;
+    border: 1px solid hsl(0, 0%, 93%);
+    border-radius: 6px;
+    min-height: 350px;
+  }
+  img {
+    width: 70px;
+    border-radius: 50%;
+    margin: 10px auto 25px;
+  }
+  @media (max-width:1024px) {
+    width: 100%;
+  }
+}

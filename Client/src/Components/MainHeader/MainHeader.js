@@ -1,5 +1,4 @@
 import React from "react";
-import { IoMdPerson } from "react-icons/io";
 import { BsHeart, BsPerson } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { TfiSearch } from "react-icons/tfi";

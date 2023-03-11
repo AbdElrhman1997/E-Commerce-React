@@ -7,6 +7,7 @@ import TopHeader from "./Components/TopHeader/TopHeader";
 import MobileNav from "./Components/MoblieNav/MobileNav";
 import Carousel from "./Components/Carousel/Carousel";
 import Products from "./Components/Products/Products";
+import SummerContainer from "./Components/SummerContainer/SummerContainer";
 function App() {
   return (
     <main>
@@ -17,6 +18,7 @@ function App() {
       <MobileNav />
       <Carousel />
       <Products />
+      <SummerContainer />
     </main>
   );
 }

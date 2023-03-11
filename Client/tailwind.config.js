@@ -18,6 +18,7 @@ module.exports = {
       metal: "#565584",
       main: "#ff8f9c",
       "main-text": "#787878",
+      "main-white": "hsl(0, 0%, 93%)",
       silver: "#ecebff",
       "bubble-gum": "#ff77e9",
       bermuda: "#78dcca",

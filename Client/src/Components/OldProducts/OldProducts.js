@@ -15,7 +15,7 @@ const OldProducts = () => {
     <section className="old-products grid grid-cols-9">
       <div className="lg:col-span-3 md:col-span-4 sm:col-span-9 col-span-9">
         <p className="w-4/5 m-auto text-xl font-semibold">New Arrivals</p>
-        <hr className="mb-5 mt-2 w-4/5 m-auto" />
+        <hr className="mb-5 mt-2 w-4/5 m-auto bg-main-white" />
         <Swiper
           className="Swiper text-center"
           modules={[Navigation, Scrollbar, A11y, EffectFade, Grid]}
@@ -51,7 +51,7 @@ const OldProducts = () => {
       </div>
       <div className="lg:col-span-3 md:col-span-4 sm:col-span-9 col-span-9">
         <p className="w-4/5 m-auto text-xl font-semibold">Trending</p>
-        <hr className="mb-5 mt-2 w-4/5 m-auto" />
+        <hr className="mb-5 mt-2 w-4/5 m-auto bg-main-white" />
         <Swiper
           className="Swiper text-center"
           modules={[Navigation, Scrollbar, A11y, EffectFade, Grid]}
@@ -86,8 +86,8 @@ const OldProducts = () => {
         </Swiper>
       </div>
       <div className="lg:col-span-3 md:col-span-4 sm:col-span-9 col-span-9">
-        <p className="w-4/5 m-auto text-xl font-semibold">Top Rated</p>
-        <hr className="mb-5 mt-2 w-4/5 m-auto" />
+        <p className="w-4/5 m-auto text-xl font-semibold ">Top Rated</p>
+        <hr className="mb-5 mt-2 w-4/5 m-auto bg-main-white" />
         <Swiper
           className="Swiper text-center"
           modules={[Navigation, Scrollbar, A11y, EffectFade, Grid]}
