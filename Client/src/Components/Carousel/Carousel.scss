@@ -1,42 +1,42 @@
 
 .category {
   margin: 40px auto;
-    .Swiper {
-      height: 100px;
-      .swiper-scrollbar {
-        height: 8px;
-        background-color: transparent;
-      }
-      .swiper-scrollbar-drag {
-        height: 8px;
-        background-color: transparent !important;
-      }
-      .swiper-button-prev {
-        background-color: transparent;
-        width: 18px;
-        height: 18px;
-        border-top: 4px solid rgb(54, 54, 54);
-        border-right: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-left: 4px solid black;
-        transform: rotate(315deg) translateX(-8px);
-      }
-      .swiper-button-next {
-        background-color: transparent;
-        width: 18px;
-        height: 18px;
-        border-top: 4px solid rgb(54, 54, 54);
-        border-right: 4px solid transparent;
-        border-bottom: 4px solid transparent;
-        border-left: 4px solid rgb(54, 54, 54);
-        transform: rotate(135deg) translateY(-6px);
-
-      }
-      .swiper-button-next::after, .swiper-button-prev::after {
-        content: "";
-      }
-      &:hover .swiper-scrollbar-drag {
-        background-color: rgb(214, 214, 214) !important;
-      }
+  .Swiper {
+    height: 100px;
+    .swiper-scrollbar {
+      height: 8px;
+      background-color: transparent;
     }
+    .swiper-scrollbar-drag {
+      height: 8px;
+      background-color: transparent !important;
+    }
+    .swiper-button-prev {
+      background-color: transparent;
+      width: 22px;
+      height: 22px;
+      border-top: 4px solid #787878;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid #787878;
+      transform: rotate(315deg) translate(0,0);
+    }
+    .swiper-button-next {
+      background-color: transparent;
+      width: 22px;
+      height: 22px;
+      border-top: 4px solid #787878;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid #787878;
+      transform: rotate(135deg) translate(0,0);
+
+    }
+    .swiper-button-next::after, .swiper-button-prev::after {
+      content: "";
+    }
+    &:hover .swiper-scrollbar-drag {
+      background-color: rgb(214, 214, 214) !important;
+    }
+  }
 }

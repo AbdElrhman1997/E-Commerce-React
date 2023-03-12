@@ -1,7 +1,7 @@
 import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { products } from "../../Assets/data/products";
-import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
+import SwiperCore, { Mousewheel } from "swiper/core";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation, Scrollbar, A11y, EffectFade, Grid } from "swiper";
 
@@ -9,7 +9,6 @@ import "./OldProducts.scss";
 
 const OldProducts = () => {
   const swiper = useSwiper();
-  SwiperCore.use([Keyboard, Mousewheel]);
 
   return (
     <section className="old-products grid grid-cols-9">
@@ -25,11 +24,10 @@ const OldProducts = () => {
             rows: 4,
             fill: "row",
           }}
-          keyboard={true}
           mousewheel={true}
           scrollbar={{ draggable: false }}
           grabCursor={false}
-          speed={200}
+          speed={320}
           navigation={true}
         >
           <button onClick={() => swiper.slidePrev()}></button>
@@ -65,7 +63,7 @@ const OldProducts = () => {
           mousewheel={true}
           scrollbar={{ draggable: true }}
           grabCursor={false}
-          speed={200}
+          speed={320}
           navigation={true}
         >
           <button onClick={() => swiper.slidePrev()}></button>
@@ -101,7 +99,7 @@ const OldProducts = () => {
           mousewheel={true}
           scrollbar={{ draggable: true }}
           grabCursor={false}
-          speed={200}
+          speed={320}
           navigation={true}
         >
           <button onClick={() => swiper.slidePrev()}></button>

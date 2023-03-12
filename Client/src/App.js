@@ -8,6 +8,7 @@ import MobileNav from "./Components/MoblieNav/MobileNav";
 import Carousel from "./Components/Carousel/Carousel";
 import Products from "./Components/Products/Products";
 import SummerContainer from "./Components/SummerContainer/SummerContainer";
+import Footer from "./Components/Footer/Footer";
 function App() {
   return (
     <main>
@@ -19,6 +20,7 @@ function App() {
       <Carousel />
       <Products />
       <SummerContainer />
+      <Footer />
     </main>
   );
 }

@@ -10,7 +10,7 @@
       transform: translate(-50%,-50%);
       background: hsla(0, 0%, 100%, 0.7);
       border-radius: 10px;
-      padding: 30px;
+      // padding: 0 30px;
       text-align: center;
       p:first-child {
         background-color: hsl(0, 0%, 13%);
@@ -18,7 +18,8 @@
         font-weight: 600;
         margin:10px auto;
         border-radius: 6px;
-        padding: 7px;
+        // padding: 3px 5px;
+        font-size: 1.2vw;
       }
       p:first-child+p {
         // font-size: 27px;
@@ -28,12 +29,11 @@
       }
       p:first-child+p+p {
         color: hsl(0, 0%, 47%);
-        margin: 8px 0;
       }
       button {
         color: hsl(0, 0%, 47%);
         font-weight: bold;
-        padding: 5px;
+        margin-top: -6px;
       }
       button:hover {
         background-color: #ff8f9c;

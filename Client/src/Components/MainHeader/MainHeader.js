@@ -15,9 +15,9 @@ const MainHeader = () => {
           <input
             type="search"
             placeholder="Enter your product name..."
-            className=" w-full text-xl"
+            className=" w-full text-xl text-main-text"
           ></input>
-          <TfiSearch className="text-lg text-gray-700" />
+          <TfiSearch className="text-lg text-main-text" />
         </div>
         <div className="icons hidden lg:flex">
           <BsPerson />

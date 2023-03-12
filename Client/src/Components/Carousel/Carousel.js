@@ -35,6 +35,24 @@ const Carousel = () => {
     { imgUrl: ctgItem8, title: "HAT & CAPS", count: 15 },
   ];
 
+  //   const handleMouseWheel=( function (e) {
+  //     if (e.deltaY>0) {
+  //         owl.trigger('next.owl');
+  //     } else {
+  //         owl.trigger('prev.owl');
+  //     }
+  //     e.preventDefault();
+  // });
+  document.body.addEventListener("keydown", (event) => {
+    const owl = document.querySelector(".owl-theme");
+    console.log(event.keyCode);
+    if (event.key === 37) {
+      owl.trigger("prev.owl.carousel");
+    } else if (event.key === 39) {
+      owl.trigger("next.owl.carousel", [300]);
+    }
+  });
+
   return (
     <section
       className="category container"

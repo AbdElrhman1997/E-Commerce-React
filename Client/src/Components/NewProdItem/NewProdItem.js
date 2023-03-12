@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react";
 import { ImStarFull, ImStarHalf } from "react-icons/im";
 import { BsHeart, BsEye, BsBagPlus } from "react-icons/bs";
-import test from "../../Assets/Imgs/Products/jacket-3.jpg";
-import test1 from "../../Assets/Imgs/Products/jacket-2.jpg";
 
 import Badge from "../Badge/Badge";
 

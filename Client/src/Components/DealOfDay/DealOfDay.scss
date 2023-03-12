@@ -1,0 +1,75 @@
+.deal-of-day {
+  margin: 20px 0 40px;
+  width: 100%;
+  .Swiper {
+    width: 900px;
+    padding: 60px;
+    .swiper-scrollbar {
+      height: 8px;
+      background-color: transparent;
+    }
+    .swiper-scrollbar-drag {
+      height: 8px;
+      background-color: transparent !important;
+      width: 30% !important;
+      margin-left: 10%;
+    }
+    .swiper-button-next::after, .swiper-button-prev::after {
+      content: "";
+    }
+    &:hover .swiper-scrollbar-drag {
+      background-color: rgb(214, 214, 214) !important;
+    }
+  }
+  .deal-item {
+    border: 1px solid hsl(0, 0%, 93%);
+    height: fit-content;
+    padding: 20px 10px;
+    border-radius: 10px;
+    a:hover {
+      background-color: #ff7c8b;
+    }
+    img {
+      // width: 50%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .deal-content {
+      margin: 0 20px;
+      .out-bar {
+        background-color: hsl(0, 0%, 90%);
+        height: 8px;
+        width: 100%;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        padding: 0 3px;
+      }
+      .inner-bar {
+        background-color: #ff7c8b;
+        height: 2.5px;
+        width: 50%;
+        border-radius: 6px;
+      }
+      .deal-date {
+        margin: 4px 0;
+        div {
+          background-color: hsl(0, 0%, 93%);
+          padding: 10px;
+          border-radius: 10px;
+          margin: 0 20px 0 0;
+          text-align: center;
+          width: 60px;
+          height: 60px;
+          p:first-child {
+            font-weight: 600;
+          }
+          p:last-child {
+            font-weight: 300;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

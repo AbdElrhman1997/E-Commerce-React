@@ -2,6 +2,7 @@ import React from "react";
 import OurServices from "../OurServices/OurServices";
 import SummerCollection from "../SummerCollection/SummerCollection";
 import Testimonial from "../Testimonial/Testimonial";
+import "./SummerContainer.scss";
 
 const SummerContainer = () => {
   return (

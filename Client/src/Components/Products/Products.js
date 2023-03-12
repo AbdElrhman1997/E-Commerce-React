@@ -4,6 +4,7 @@ import NewProducts from "../NewProducts/NewProducts";
 
 import "./Products.scss";
 import OldProducts from "../OldProducts/OldProducts";
+import DealOfDay from "../DealOfDay/DealOfDay";
 
 const Products = () => {
   return (
@@ -15,6 +16,9 @@ const Products = () => {
         <div className="product-minmal lg:col-span-9 col-span-12 grid grid-cols-9">
           <div className="col-span-12">
             <OldProducts />
+          </div>
+          <div className="col-span-12">
+            <DealOfDay />
           </div>
           <div className="col-span-12">
             <NewProducts />
