@@ -9,9 +9,13 @@ import Carousel from "./Components/Carousel/Carousel";
 import Products from "./Components/Products/Products";
 import SummerContainer from "./Components/SummerContainer/SummerContainer";
 import Footer from "./Components/Footer/Footer";
+import MobileSideBar from "./Components/MobileSideBar/MobileSideBar";
+import Overlay from "./Components/Overlay/Overlay";
 function App() {
   return (
     <main>
+      <MobileSideBar />
+      <Overlay />
       <TopHeader />
       <MainHeader />
       <MainNav />

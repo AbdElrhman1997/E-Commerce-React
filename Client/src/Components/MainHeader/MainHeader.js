@@ -21,8 +21,12 @@ const MainHeader = () => {
         </div>
         <div className="icons hidden lg:flex">
           <BsPerson />
-          <BsHeart />
-          <AiOutlineShoppingCart />
+          <div className="favorite" data-favorite="3">
+            <BsHeart />
+          </div>
+          <div className="card" data-card="0">
+            <AiOutlineShoppingCart />
+          </div>
         </div>
       </div>
     </header>

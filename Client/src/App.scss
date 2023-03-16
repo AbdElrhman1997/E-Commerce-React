@@ -6,7 +6,7 @@
   margin: 0;
 }
 ::-webkit-scrollbar {
-  width: 11px;
+  width: 9px;
 }
 
 /* Track */
@@ -35,4 +35,5 @@ html {
 body {
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }

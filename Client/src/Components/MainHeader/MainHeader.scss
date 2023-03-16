@@ -33,7 +33,42 @@
             font-size: 32px;
             color: #707070;
             margin: 14px;
-
+            .card,.favorite
+            {
+                position: relative;
+            }
+            .card::before,.favorite::before {
+                content: attr(data-card);
+                position: absolute;
+                top: -15px;
+                right: -15px;
+                width: 23px;
+                height: 23px;
+                padding: 2px;
+                border-radius: 50%;
+                background-color: hsl(0, 100%, 70%);
+                font-size: 14px;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            } 
+            .favorite::before {
+                content: attr(data-favorite);
+                position: absolute;
+                top: -15px;
+                right: -15px;
+                width: 23px;
+                height: 23px;
+                padding: 2px;
+                border-radius: 50%;
+                background-color: hsl(0, 100%, 70%);
+                font-size: 14px;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
 }

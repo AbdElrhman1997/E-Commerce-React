@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
         <div className="w-full mt-6 flex flex-col items-center">
           <img src={footerImg} className="my-4" />
-          <p className="text-main-text w-full font-bold text-center">
+          <p className="text-main-text w-full font-bold text-center mb-5">
             Copyright &copy; Abdelrahman Mohamed All Rights Reserved.
           </p>
         </div>
