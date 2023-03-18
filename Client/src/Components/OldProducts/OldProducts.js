@@ -31,15 +31,16 @@ const OldProducts = () => {
           navigation={true}
         >
           <button onClick={() => swiper.slidePrev()}></button>
-          {products[0].group1.map((product, i) => {
+          {products[0].map((product, i) => {
             return (
               <SwiperSlide key={i}>
                 <ProductCard
+                  id={product.id}
                   imgUrl={product.imgUrl}
                   title={product.title}
                   category={product.category}
                   price={product.price}
-                  disPrice={product.disPrice}
+                  disCount={product.disCount}
                 />
               </SwiperSlide>
             );
@@ -67,15 +68,16 @@ const OldProducts = () => {
           navigation={true}
         >
           <button onClick={() => swiper.slidePrev()}></button>
-          {products[1].group2.map((product, i) => {
+          {products[1].map((product, i) => {
             return (
               <SwiperSlide key={i}>
                 <ProductCard
+                  id={product.id}
                   imgUrl={product.imgUrl}
                   title={product.title}
                   category={product.category}
                   price={product.price}
-                  disPrice={product.disPrice}
+                  disCount={product.disCount}
                 />
               </SwiperSlide>
             );
@@ -103,15 +105,16 @@ const OldProducts = () => {
           navigation={true}
         >
           <button onClick={() => swiper.slidePrev()}></button>
-          {products[2].group3.map((product, i) => {
+          {products[2].map((product, i) => {
             return (
               <SwiperSlide key={i}>
                 <ProductCard
+                  id={product.id}
                   imgUrl={product.imgUrl}
                   title={product.title}
                   category={product.category}
                   price={product.price}
-                  disPrice={product.disPrice}
+                  disCount={product.disCount}
                 />
               </SwiperSlide>
             );

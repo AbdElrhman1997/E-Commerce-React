@@ -17,6 +17,7 @@ module.exports = {
       midnight: "#121063",
       metal: "#565584",
       main: "#ff8f9c",
+      "main-hover": "#ff6173",
       "main-text": "#787878",
       "main-white": "hsl(0, 0%, 93%)",
       silver: "#ecebff",

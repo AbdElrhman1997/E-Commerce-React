@@ -2,19 +2,23 @@ import React from "react";
 import test from "../../Assets/Imgs/Products/clothes-1.jpg";
 import "./ProductCard.scss";
 
-const ProductCard = ({ imgUrl, title, category, price, disPrice }) => {
+const ProductCard = ({ id, imgUrl, title, category, price, disCount }) => {
   return (
     <div className="product-card container">
       <div className="product-img">
-        <img src={imgUrl} />
+        <a href={`productdetails/${id}`}>
+          <img src={imgUrl} />
+        </a>
       </div>
       <div className="product-content">
-        <p>{title}</p>
+        <a href={`productdetails/${id}`}>
+          <p>{title}</p>
+        </a>
         <div className=" text-main-text" href="#">
           {category}
         </div>
         <div className=" text-main" href="#">
-          {price}$ <span>{disPrice}$</span>
+          {price}$ <span>{disCount}$</span>
         </div>
       </div>
     </div>

@@ -1,22 +1,36 @@
 import React, { useRef, useState } from "react";
 import { ImStarFull, ImStarHalf } from "react-icons/im";
 import { BsHeart, BsEye, BsBagPlus } from "react-icons/bs";
-
+import { products } from "../../Assets/data/products";
 import Badge from "../Badge/Badge";
 
 import "./NewProdItem.scss";
 
 const NewProdItem = ({
+  id,
   imgUrl,
   imgHover,
   category,
-  desc,
+  title,
   price,
   disCount,
   badge,
 }) => {
   const [prodImg, setProdImg] = useState(imgUrl);
   const img = useRef();
+  const [product, setProduct] = useState(products[0][1]);
+  const addToCart = () => {
+    localStorage.setItem("productDetails", JSON.stringify([products[0][0]]));
+
+    if (localStorage) {
+      const cartProducts = JSON.parse(localStorage.getItem("productDetails"));
+      cartProducts.push(product);
+      localStorage.setItem("productDetails", JSON.stringify(cartProducts));
+      console.log(cartProducts);
+    } else {
+      localStorage.setItem("productDetails", JSON.stringify([products[0][0]]));
+    }
+  };
   const changeImage = () => {
     setProdImg(imgHover);
     img.current.style = "transform:scale(110%);";
@@ -34,16 +48,18 @@ const NewProdItem = ({
       onMouseLeave={backImg}
     >
       {badge ? <Badge /> : null}
-      <img src={prodImg} ref={img} />
+      <a href={`productdetails/${id}`}>
+        <img src={prodImg} ref={img} />
+      </a>
       <div className="px-4 py-2">
         <p className="text-main text-xs uppercase">{category}</p>
-        <p className="description text-main-text font-light my-1">{desc}</p>
+        <p className="description text-main-text font-light my-1">{title}</p>
         <p className="flex my-3 text-amber-400">
           <ImStarFull />
           <ImStarFull />
           <ImStarFull />
           <ImStarFull />
-          <ImStarFull />
+          <ImStarHalf />
         </p>
         <div className="my-1">
           <span className="font-semibold">{parseInt(price).toFixed(2)}$</span>
@@ -56,9 +72,11 @@ const NewProdItem = ({
             <BsHeart />
           </button>
           <button className="eye">
-            <BsEye />
+            <a href={`productdetails/${id}`}>
+              <BsEye />
+            </a>
           </button>
-          <button className="add">
+          <button className="add" onClick={addToCart}>
             <BsBagPlus />
           </button>
         </div>

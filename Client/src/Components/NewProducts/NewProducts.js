@@ -26,6 +26,7 @@ import img12 from "../../Assets/Imgs/Products/shorts-1.jpg";
 import imgHover12 from "../../Assets/Imgs/Products/shorts-2.jpg";
 
 import "./NewProducts.scss";
+import { products } from "../../Assets/data/products";
 
 const NewProducts = () => {
   return (
@@ -33,114 +34,21 @@ const NewProducts = () => {
       <p className="m-auto text-xl font-semibold">New Products</p>
       <hr className="mb-5 mt-2 m-auto bg-main-white" />
       <div className="new-products-container">
-        <NewProdItem
-          imgUrl={img1}
-          imgHover={imgHover1}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="75"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img2}
-          imgHover={imgHover2}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img3}
-          imgHover={imgHover3}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img4}
-          imgHover={imgHover4}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={true}
-        />
-        <NewProdItem
-          imgUrl={img5}
-          imgHover={imgHover5}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img6}
-          imgHover={imgHover6}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img7}
-          imgHover={imgHover7}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={true}
-        />
-        <NewProdItem
-          imgUrl={img8}
-          imgHover={imgHover8}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img9}
-          imgHover={imgHover9}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img10}
-          imgHover={imgHover10}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={true}
-        />
-        <NewProdItem
-          imgUrl={img11}
-          imgHover={imgHover11}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
-        <NewProdItem
-          imgUrl={img12}
-          imgHover={imgHover12}
-          category="JACKET"
-          desc="Mens Winter Leathers Jackets"
-          price="50"
-          disCount="30"
-          badge={false}
-        />
+        {products[3].map((product, i) => {
+          return (
+            <NewProdItem
+              key={i}
+              id={product.id}
+              imgUrl={product.imgUrl}
+              imgHover={product.imgHover}
+              category={product.category}
+              title={product.title}
+              price={product.price}
+              disCount={product.disCount}
+              badge={product.badge}
+            />
+          );
+        })}
       </div>
     </section>
   );
