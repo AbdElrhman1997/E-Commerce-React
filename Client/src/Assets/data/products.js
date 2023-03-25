@@ -60,6 +60,7 @@ export const products = [
       desc: "This sleek black leather wallet is perfect for the modern man. It features multiple card slots, a spacious bill compartment, and a zippered coin pocket. The leather is soft to the touch and durable, ensuring that this wallet will last for years to come.",
       price: "45.00",
       disCount: "35.00",
+      isFavorite: false,
     },
     {
       id: 2,
@@ -69,6 +70,7 @@ export const products = [
       desc: "Make a statement with this bold blue striped dress shirt. It's made from high-quality cotton and features a classic fit that's both comfortable and stylish. Whether you're dressing up for a formal occasion or just want to look your best, this shirt is sure to impress.",
       price: "65.00",
       disCount: "50.00",
+      isFavorite: false,
     },
     {
       id: 3,
@@ -78,6 +80,7 @@ export const products = [
       desc: "These gold-plated cufflinks are the perfect addition to any formal outfit. They feature a simple yet elegant design that will complement any style. Whether you're attending a wedding, a business meeting, or a fancy dinner, these cufflinks will help you look your best.",
       price: "25.00",
       disCount: "20.00",
+      isFavorite: false,
     },
     {
       id: 4,
@@ -87,6 +90,7 @@ export const products = [
       desc: "This stylish leather handbag is perfect for the fashion-forward woman. It features a spacious interior with multiple pockets and compartments, as well as a detachable shoulder strap for versatile carrying options. The leather is soft and supple, making this bag both beautiful and functional.",
       price: "85.00",
       disCount: "70.00",
+      isFavorite: false,
     },
     {
       id: 5,
@@ -96,6 +100,7 @@ export const products = [
       desc: "These black leather boots are the perfect combination of style and comfort. They feature a sleek design with a sturdy sole that provides excellent support and traction. Whether you're dressing up for a night out or just running errands, these boots will keep your feet looking and feeling great.",
       price: "120.00",
       disCount: "95.00",
+      isFavorite: false,
     },
     {
       id: 6,
@@ -105,6 +110,7 @@ export const products = [
       desc: "Stay warm and stylish with this cozy wool coat. It features a classic design with a flattering cut that will keep you looking chic all winter long. The wool is soft and warm, making this coat the perfect choice for cold weather.",
       price: "150.00",
       disCount: "120.00",
+      isFavorite: false,
     },
     {
       id: 7,
@@ -114,6 +120,7 @@ export const products = [
       desc: "This classic leather watch is the perfect accessory for any outfit. It features a simple design with a genuine leather strap and a stainless steel case. The watch face is easy to read, making it a practical choice as well as a stylish one.",
       price: "90.00",
       disCount: "70.00",
+      isFavorite: false,
     },
     {
       id: 8,
@@ -123,6 +130,7 @@ export const products = [
       desc: "These black leather boots are the perfect combination of style and comfort. They feature a sleek design with a sturdy sole that provides excellent support and traction. Whether you're dressing up for a night out or just running errands, these boots will keep your feet looking and feeling grat.",
       price: "22.00",
       disCount: "29.00",
+      isFavorite: false,
     },
   ],
   [
@@ -134,6 +142,7 @@ export const products = [
       desc: "Carry your laptop in style with this sleek and stylish laptop bag. Made from durable materials and featuring plenty of compartments for all your accessories.",
       price: "44.99",
       disCount: "30",
+      isFavorite: false,
     },
     {
       id: 10,
@@ -143,6 +152,7 @@ export const products = [
       desc: "Experience premium sound quality with these Bluetooth headphones. Featuring noise-cancellation technology and long battery life, they're perfect for any audiophile on-the-go.",
       price: "99.99",
       disCount: "20",
+      isFavorite: false,
     },
     {
       id: 11,
@@ -152,6 +162,7 @@ export const products = [
       desc: "Keep your cash and cards organized with this stylish leather wallet. Featuring multiple compartments and a sleek design, it's the perfect accessory for any gentleman.",
       price: "34.99",
       disCount: "15",
+      isFavorite: false,
     },
     {
       id: 12,
@@ -161,6 +172,7 @@ export const products = [
       desc: "Stay on top of your fitness goals with this smart fitness tracker. Featuring heart rate monitoring, GPS tracking, and more, it's the perfect tool to help you stay in shape.",
       price: "79.99",
       disCount: "25",
+      isFavorite: false,
     },
     {
       id: 13,
@@ -170,6 +182,7 @@ export const products = [
       desc: "Stay stylish and protected from the sun with these chic sunglasses. Featuring polarized lenses and a trendy design, they're the perfect accessory for any outfit.",
       price: "29.99",
       disCount: "10",
+      isFavorite: false,
     },
     {
       id: 14,
@@ -179,6 +192,7 @@ export const products = [
       desc: "Never run out of battery on-the-go with this powerful portable power bank. Featuring fast charging technology and a sleek design, it's the perfect accessory for any traveler.",
       price: "49.99",
       disCount: "20",
+      isFavorite: false,
     },
     {
       id: 15,
@@ -188,6 +202,7 @@ export const products = [
       desc: "Upgrade your computer setup with this wireless mouse. Featuring precise tracking and long battery life, it's the perfect accessory for any professional.",
       price: "19.99",
       disCount: "5",
+      isFavorite: false,
     },
     {
       id: 16,
@@ -197,6 +212,7 @@ export const products = [
       desc: "Add some style to your wrist with this sleek leather watch. Featuring a timeless design and durable construction, it's the perfect accessory for any occasion.",
       price: "59.99",
       disCount: "15",
+      isFavorite: false,
     },
   ],
   [
@@ -208,6 +224,7 @@ export const products = [
       price: "18.99",
       disCount: "22.99",
       desc: "This pocket watch leather pouch is perfect for keeping your watch safe and secure. It is made from high-quality leather and has a soft interior lining that protects your watch from scratches and dings. The pouch is also compact and easy to carry around, making it ideal for travel or daily use.",
+      isFavorite: false,
     },
     {
       id: 18,
@@ -217,6 +234,7 @@ export const products = [
       price: "28.99",
       disCount: "32.99",
       desc: "This stunning silver deer heart necklace is the perfect accessory for any occasion. The necklace features a delicate deer charm and a heart-shaped pendant that adds a touch of elegance to any outfit. It is made from high-quality materials that are both durable and lightweight.",
+      isFavorite: false,
     },
     {
       id: 19,
@@ -226,6 +244,7 @@ export const products = [
       price: "19.99",
       disCount: "24.99",
       desc: "This Titan 100 Ml women's perfume is the perfect way to add a touch of elegance to your everyday routine. It has a light and refreshing scent that is perfect for any occasion. The perfume is made from high-quality ingredients that are both long-lasting and gentle on your skin.",
+      isFavorite: false,
     },
     {
       id: 20,
@@ -235,6 +254,7 @@ export const products = [
       price: "35.99",
       disCount: "40.99",
       desc: "This men's leather reversible belt is the perfect accessory for any occasion. It is made from high-quality leather that is both durable and stylish. The belt is reversible, which means you can switch up your look with ease. It also features a classic buckle that adds a touch of sophistication to your outfit.",
+      isFavorite: false,
     },
     {
       id: 21,
@@ -244,6 +264,7 @@ export const products = [
       price: "24.99",
       disCount: "28.99",
       desc: "This platinum zircon classic ring is the perfect way to add a touch of elegance to your outfit. It is made from high-quality materials that are both durable and lightweight. The ring features a stunning zircon stone that catches the light and adds a touch of sparkle to your look.",
+      isFavorite: false,
     },
     {
       id: 22,
@@ -253,6 +274,7 @@ export const products = [
       price: "45.99",
       disCount: "50.99",
       desc: "This smart watch Vital Plus is the perfect way to stay connected on the go. It features a range of advanced features that allow you to track your fitness, monitor your heart rate, and stay connected to your phone. The watch is made from high-quality materials that are both durable and lightweight, making it perfect for everyday use.",
+      isFavorite: false,
     },
     {
       id: 23,
@@ -262,6 +284,7 @@ export const products = [
       price: "29.99",
       disCount: "34.99",
       desc: "This shampoo conditioner pack is the perfect way to keep your hair looking healthy and beautiful. It includes a high-quality shampoo and conditioner that are both gentle",
+      isFavorite: false,
     },
     {
       id: 24,
@@ -271,6 +294,7 @@ export const products = [
       price: "24.00",
       disPrice: "33.00",
       desc: "This smart watch Vital Plus is the perfect way to stay connected on the go. It features a range of advanced features that allow you to track your fitness, monitor your heart rate, and stay connected to your phone. The watch is made from high-quality materials that are both durable and lightweight, making it perfect for everyday use.",
+      isFavorite: false,
     },
   ],
   [
@@ -284,6 +308,7 @@ export const products = [
       disCount: "60",
       badge: false,
       desc: "Get ready to rev up your style with this classic leather biker jacket. Made with high-quality leather and expert craftsmanship, this jacket is perfect for motorcycle enthusiasts and fashion-forward individuals alike. Whether you're hitting the open road or simply looking to make a statement, this jacket is sure to turn heads.",
+      isFavorite: false,
     },
     {
       id: 26,
@@ -295,6 +320,7 @@ export const products = [
       disCount: "50",
       badge: true,
       desc: "Step up your style game with this rugged and stylish distressed brown aviator jacket. With its classic design and high-quality materials, this jacket is perfect for any occasion. Whether you're hitting the town or exploring the great outdoors, this jacket is sure to keep you warm, comfortable, and looking your best.",
+      isFavorite: false,
     },
     {
       id: 27,
@@ -306,6 +332,7 @@ export const products = [
       disCount: "80",
       badge: false,
       desc: "Take your style to the next level with this military green utility jacket. Made with durable materials and expert craftsmanship, this jacket is perfect for everyday wear. Whether you're running errands or hitting the trails, this jacket is sure to keep you comfortable and looking great.",
+      isFavorite: false,
     },
     {
       id: 28,
@@ -317,6 +344,7 @@ export const products = [
       disCount: "70",
       badge: true,
       desc: "Upgrade your wardrobe with this stylish and versatile suede bomber jacket in tan. With its classic design and premium materials, this jacket is perfect for any occasion. Whether you're heading to the office or out for a night on the town, this jacket is sure to keep you looking sharp and feeling comfortable.",
+      isFavorite: false,
     },
     {
       id: 29,
@@ -328,6 +356,7 @@ export const products = [
       disCount: "55",
       badge: false,
       desc: "Stay warm and stylish with this navy blue parka jacket. Made with high-quality materials and expert craftsmanship, this jacket is perfect for cold weather and outdoor activities. Whether you're hitting the slopes or simply running errands, this jacket is sure to keep you warm, comfortable, and looking your best.",
+      isFavorite: false,
     },
     {
       id: 30,
@@ -339,6 +368,7 @@ export const products = [
       disCount: "65",
       badge: true,
       desc: "Stay warm and stylish this winter with this black puffer jacket with hood. Made with premium materials and expert craftsmanship, this jacket is perfect for cold weather and outdoor activities. Whether you're hitting the slopes or simply running",
+      isFavorite: false,
     },
     {
       id: 31,
@@ -350,6 +380,7 @@ export const products = [
       disCount: "45",
       badge: false,
       desc: "This classic peacoat is made with a warm wool blend to keep you cozy during the colder months. The double-breasted front adds a touch of sophistication, while the grey color complements any outfit.",
+      isFavorite: false,
     },
     {
       id: 32,
@@ -361,6 +392,7 @@ export const products = [
       disCount: "30",
       badge: true,
       desc: "Crafted from genuine leather, this jacket features a sleek stand collar and a rich brown hue. The supple texture and stylish design make it the perfect addition to any outfit.",
+      isFavorite: false,
     },
     {
       id: 33,
@@ -372,6 +404,7 @@ export const products = [
       disCount: "75",
       badge: true,
       desc: "Get the edgy look of a classic moto jacket without the guilt with this stylish faux leather option. The black color and silver hardware create a sleek, modern look.",
+      isFavorite: false,
     },
     {
       id: 34,
@@ -383,6 +416,7 @@ export const products = [
       disCount: "40",
       badge: false,
       desc: "This timeless denim jacket is a wardrobe staple that never goes out of style. The classic blue color and sturdy construction make it a reliable choice for any casual occasion.",
+      isFavorite: false,
     },
     {
       id: 35,
@@ -394,6 +428,7 @@ export const products = [
       disCount: "20",
       badge: true,
       desc: "This versatile field jacket is perfect for the outdoorsman or the urban adventurer. The olive green color and multiple pockets make it both stylish and functional.",
+      isFavorite: false,
     },
     {
       id: 36,
@@ -405,6 +440,7 @@ export const products = [
       disCount: "40",
       badge: false,
       desc: "This budget-friendly leather jacket is a great option for those who want the look without breaking the bank. The brown color and stand collar add a touch of sophistication to any outfit.",
+      isFavorite: false,
     },
   ],
 ];

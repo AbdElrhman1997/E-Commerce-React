@@ -4,6 +4,8 @@ import test from "../../Assets/Imgs/Products/jacket-1.jpg";
 import { FaArrowLeft } from "react-icons/fa";
 import "./ProductDetails.scss";
 import { useParams } from "react-router-dom";
+import { cartCount } from "../../Store/CartSlice";
+import { useDispatch } from "react-redux";
 import { products } from "../../Assets/data/products";
 
 const ProductDetails = () => {
@@ -14,6 +16,7 @@ const ProductDetails = () => {
   const [count, setCount] = useState(0);
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     products.map((p) =>
@@ -36,16 +39,25 @@ const ProductDetails = () => {
     }
   }
 
-  // function convertToEnglishNumerals(str) {
-  //   return str.replace(/[٠١٢٣٤٥٦٧٨٩]/g, function (c) {
-  //     return c.charCodeAt(0) - 1632;
-  //   });
-  // }
+  const addToCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
+    const productIndex = cartItems.findIndex((item) => {
+      return item.id == product.id;
+    });
+    if (cartItems.length) {
+      if (productIndex >= 0) {
+        console.log("this item already added");
+      } else {
+        const newCartItems = [...cartItems, product];
+        localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+      }
+    } else {
+      const newCartItems = [product];
+      localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+    }
+    dispatch(cartCount());
+  };
 
-  // function handleCountChange(event) {
-  //   const value = convertToEnglishNumerals(event.target.value);
-  //   setCount(parseInt(value) || 0);
-  // }
   return (
     <section class="prd-details text-gray-700 body-font overflow-hidden bg-white">
       <div class="container px-5 py-6 mx-auto">
@@ -127,12 +139,19 @@ const ProductDetails = () => {
             </div>
             <p class="prd-desc leading-relaxed my-6">{product.desc}</p>
 
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
               <div class="title-font font-medium text-2xl text-gray-900">
                 {product.price}$
               </div>
-
-              <div className="flex items-center justify-center">
+              <button
+                onClick={() => {
+                  addToCart();
+                }}
+                class="text-base leading-none p-5 font-bold bg-main border-main border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white hover:bg-main-hover dark:hover:bg-gray-700"
+              >
+                Add To Cart
+              </button>
+              {/* <div className="flex items-center justify-center">
                 <button
                   className="prd-details-btn px-2 py-1 bg-main rounded-l-lg text-white"
                   onClick={subtractProduct}
@@ -153,7 +172,7 @@ const ProductDetails = () => {
                 >
                   +
                 </button>
-              </div>
+              </div> */}
               <button class="rounded-full w-10 h-10 bg-main p-0 border-0 inline-flex items-center justify-center text-white ml-4">
                 <svg
                   fill="currentColor"
@@ -175,9 +194,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-
-{
-  /* <button class="text-white bg-main border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
-                Add To Cart
-              </button> */
-}

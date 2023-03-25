@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.scss";
+import "./App.css";
 import Banner from "./Components/banner/Banner";
 import MainHeader from "./Components/MainHeader/MainHeader";
 import MainNav from "./Components/MainNav/MainNav";
@@ -11,10 +11,12 @@ import SummerContainer from "./Components/SummerContainer/SummerContainer";
 import Footer from "./Components/Footer/Footer";
 import MobileSideBar from "./Components/MobileSideBar/MobileSideBar";
 import Overlay from "./Components/Overlay/Overlay";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <main>
       <MobileSideBar />
+      <ToastContainer />
       <Overlay />
       <TopHeader />
       <MainHeader />

@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsHeart, BsGrid } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RxTextAlignJustify } from "react-icons/rx";
 import { SlHome } from "react-icons/sl";
 import { toggleSideBar } from "../../Store/SideBarSlice";
 import "./MobileNav.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const MobileNav = () => {
   const dispatch = useDispatch();
+  const golobalState = useSelector((state) => state);
 
   return (
     <div className="mobile-nav lg:hidden flex">
@@ -22,11 +23,15 @@ const MobileNav = () => {
       <div>
         <SlHome />
       </div>
-      <div className="favorite" data-favorite="3">
-        <BsHeart />
+      <div className="favorite" data-favorite={golobalState.Favorite.count}>
+        <a href="favorite">
+          <BsHeart />
+        </a>
       </div>
-      <div className="card" data-card="0">
-        <AiOutlineShoppingCart />
+      <div className="card" data-card={golobalState.Cart.count}>
+        <a href="cart">
+          <AiOutlineShoppingCart />
+        </a>
       </div>
       <div>
         <BsGrid />

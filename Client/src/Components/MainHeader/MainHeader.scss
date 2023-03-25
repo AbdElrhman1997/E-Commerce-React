@@ -33,9 +33,13 @@
             font-size: 32px;
             color: #707070;
             margin: 14px;
-            .card,.favorite
+            .card,.favorite,.profile
             {
                 position: relative;
+                cursor: pointer;
+                &:hover {
+                    color: #ff8f9c;
+                }
             }
             .card::before,.favorite::before {
                 content: attr(data-card);
@@ -46,7 +50,7 @@
                 height: 23px;
                 padding: 2px;
                 border-radius: 50%;
-                background-color: hsl(0, 100%, 70%);
+                background-color: #ff8f9c;
                 font-size: 14px;
                 color: white;
                 display: flex;
@@ -62,7 +66,7 @@
                 height: 23px;
                 padding: 2px;
                 border-radius: 50%;
-                background-color: hsl(0, 100%, 70%);
+                background-color: #ff8f9c;
                 font-size: 14px;
                 color: white;
                 display: flex;

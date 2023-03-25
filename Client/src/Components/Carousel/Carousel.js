@@ -45,7 +45,6 @@ const Carousel = () => {
   // });
   document.body.addEventListener("keydown", (event) => {
     const owl = document.querySelector(".owl-theme");
-    console.log(event.keyCode);
     if (event.key === 37) {
       owl.trigger("prev.owl.carousel");
     } else if (event.key === 39) {
