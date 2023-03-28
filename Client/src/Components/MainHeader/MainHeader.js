@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { BsHeart, BsPerson } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { TfiSearch } from "react-icons/tfi";
+import { BiLogIn } from "react-icons/bi";
 import { cartCount } from "../../Store/CartSlice";
 import logo from "../../Assets/Imgs/logo.svg";
 
 import "./MainHeader.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { FavoriteCount } from "../../Store/FavoriteSlice";
+import { isLoggedIn } from "../../Store/AuthSlice";
 
 const MainHeader = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ const MainHeader = () => {
   useEffect(() => {
     dispatch(cartCount());
     dispatch(FavoriteCount());
+    dispatch(isLoggedIn());
   }, []);
 
   const golobalState = useSelector((state) => state);
@@ -32,11 +35,6 @@ const MainHeader = () => {
           <TfiSearch className="text-lg text-main-text" />
         </div>
         <div className="icons hidden lg:flex">
-          <div className="profile" data-favorite="3">
-            <a href="/profile">
-              <BsPerson />
-            </a>
-          </div>
           <div className="favorite" data-favorite={golobalState.Favorite.count}>
             <a href="/favorite">
               <BsHeart />
@@ -47,6 +45,19 @@ const MainHeader = () => {
               <AiOutlineShoppingCart />
             </a>
           </div>
+          {golobalState.Auth.isLoggedIn ? (
+            <div className="profile">
+              <a href="/profile">
+                <BsPerson />
+              </a>
+            </div>
+          ) : (
+            <div className="log-in" data-card={golobalState.Cart.count}>
+              <a href="/login">
+                <BiLogIn />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </header>

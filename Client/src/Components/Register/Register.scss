@@ -1,0 +1,21 @@
+.register {
+  div {
+    div {
+      form {
+        div {
+          position: relative;
+          label::before {
+            content: "*";
+            position: absolute;
+            top: 2px;
+            left: -10px;
+            color: red;
+          }
+          .error {
+            color: rgba(255, 0, 0, 0.7);
+          }
+        }
+      }
+    }
+  }
+}

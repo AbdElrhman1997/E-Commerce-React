@@ -1,0 +1,61 @@
+.mobile-sideBar {
+  position:fixed;
+  height: 100vh;
+  min-width: 280px;
+  max-width: 320px;
+  top: 0;
+  left: 0;
+  transition: .3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 3000;
+  overscroll-behavior: contain;  
+
+  .side-bar {
+    height: 100vh;
+    padding: 20px 20px 5px 20px ;
+    border: 1px solid hsl(0, 0%, 91%);
+    width: 100%;
+    overflow-y: auto;
+    background-color: white;
+    .side-head {
+      border-bottom: 1.5px solid hsl(0, 0%, 93%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+    }
+    .lang,.currency {
+      margin-top: 40px;
+      .dropdown {
+        border-top: 0px;
+        li {
+          box-shadow: 0px 0px 2px 0px hsl(0, 0%, 83%);
+          padding: 7px;
+        }
+      }
+    }
+    .currency {
+      margin-top: 10px;
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 30px auto;
+      font-size: 20px;
+      a {
+        cursor: pointer;
+        background-color: hsl(0, 0%, 93%);
+        color: hsl(0, 0%, 13%);
+        padding: 8px;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+.fade-in {
+  transform: translateX(0);
+}
+.fade-out {
+  transform: translateX(-100%);
+}

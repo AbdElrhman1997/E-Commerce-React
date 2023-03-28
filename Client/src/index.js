@@ -10,6 +10,8 @@ import Cart from "./Pages/Cart/Cart";
 import Favorites from "./Pages/Favorites/Favorites";
 import { ToastContainer } from "react-toastify";
 import Profile from "./Pages/Profile/Profile";
+import Register from "./Components/Register/Register";
+import Login from "./Components/Login/Login";
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const routes = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

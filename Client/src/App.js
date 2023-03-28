@@ -12,10 +12,12 @@ import Footer from "./Components/Footer/Footer";
 import MobileSideBar from "./Components/MobileSideBar/MobileSideBar";
 import Overlay from "./Components/Overlay/Overlay";
 import { ToastContainer } from "react-toastify";
+import MobileHeader from "./Components/MobileHeader/MobileHeader";
 function App() {
   return (
     <main>
       <MobileSideBar />
+      <MobileHeader />
       <ToastContainer />
       <Overlay />
       <TopHeader />

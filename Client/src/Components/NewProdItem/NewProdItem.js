@@ -5,56 +5,71 @@ import { products } from "../../Assets/data/products";
 import Badge from "../Badge/Badge";
 
 import "./NewProdItem.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartCount } from "../../Store/CartSlice";
 import { FavoriteCount } from "../../Store/FavoriteSlice";
-import { ToastInfo, ToastSuccess } from "../Toast/Toast";
+import { ToastError, ToastInfo, ToastSuccess } from "../Toast/Toast";
+import { isLoggedIn } from "../../Store/AuthSlice";
 
 const NewProdItem = ({ product }) => {
   const [prodImg, setProdImg] = useState(product.imgUrl);
   const img = useRef();
   const dispatch = useDispatch();
-
+  const isLogged = useSelector((state) => state.Auth.isLoggedIn);
+  useEffect(() => {
+    dispatch(isLoggedIn());
+  });
   const addToCart = () => {
-    const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
-    const productIndex = cartItems.findIndex((item) => {
-      return item.id === product.id;
-    });
-    if (cartItems.length) {
-      if (productIndex >= 0) {
-        ToastInfo("this item already added");
+    if (isLogged) {
+      const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
+      const productIndex = cartItems.findIndex((item) => {
+        return item.id === product.id;
+      });
+      if (cartItems.length) {
+        if (productIndex >= 0) {
+          ToastInfo("this item already added");
+        } else {
+          const newCartItems = [...cartItems, product];
+          localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+          ToastSuccess("The product has been added successfully");
+        }
       } else {
-        const newCartItems = [...cartItems, product];
+        const newCartItems = [product];
         localStorage.setItem("CartItem", JSON.stringify(newCartItems));
         ToastSuccess("The product has been added successfully");
       }
+      dispatch(cartCount());
     } else {
-      const newCartItems = [product];
-      localStorage.setItem("CartItem", JSON.stringify(newCartItems));
-      ToastSuccess("The product has been added successfully");
+      ToastError("You must be Log in to add products");
     }
-    dispatch(cartCount());
   };
 
   const addToFavorites = () => {
-    const FavoritesItems =
-      JSON.parse(localStorage.getItem("FavoritesItem")) || [];
-    const productIndex = FavoritesItems.findIndex((item) => {
-      return item.id == product.id;
-    });
-    if (FavoritesItems.length) {
-      if (productIndex >= 0) {
-        console.log("this item already added to Favorites");
+    if (isLogged) {
+      const FavoritesItems =
+        JSON.parse(localStorage.getItem("FavoritesItem")) || [];
+      const productIndex = FavoritesItems.findIndex((item) => {
+        return item.id == product.id;
+      });
+      if (FavoritesItems.length) {
+        if (productIndex >= 0) {
+          console.log("this item already added to Favorites");
+        } else {
+          const newFavoritesItems = [...FavoritesItems, product];
+          localStorage.setItem(
+            "FavoritesItem",
+            JSON.stringify(newFavoritesItems)
+          );
+        }
       } else {
-        const newFavoritesItems = [...FavoritesItems, product];
+        const newFavoritesItems = [product];
         localStorage.setItem(
           "FavoritesItem",
           JSON.stringify(newFavoritesItems)
         );
       }
     } else {
-      const newFavoritesItems = [product];
-      localStorage.setItem("FavoritesItem", JSON.stringify(newFavoritesItems));
+      ToastError("You must be Log in to add to Favorites");
     }
     dispatch(FavoriteCount());
   };

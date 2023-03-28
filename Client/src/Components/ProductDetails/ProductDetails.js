@@ -5,8 +5,13 @@ import { FaArrowLeft } from "react-icons/fa";
 import "./ProductDetails.scss";
 import { useParams } from "react-router-dom";
 import { cartCount } from "../../Store/CartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { products } from "../../Assets/data/products";
+import { ToastError, ToastInfo, ToastSuccess } from "../Toast/Toast";
+import { isLoggedIn } from "../../Store/AuthSlice";
+import { FavoriteCount } from "../../Store/FavoriteSlice";
+import { ToastContainer } from "react-toastify";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const ProductDetails = () => {
   const handleBackButtonClick = () => {
@@ -17,6 +22,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const dispatch = useDispatch();
+  const isLogged = useSelector((state) => state.Auth.isLoggedIn);
 
   useEffect(() => {
     products.map((p) =>
@@ -26,7 +32,7 @@ const ProductDetails = () => {
         }
       })
     );
-    console.log(product.desc);
+    dispatch(isLoggedIn());
   }, [product]);
 
   function addProduct() {
@@ -40,26 +46,63 @@ const ProductDetails = () => {
   }
 
   const addToCart = () => {
-    const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
-    const productIndex = cartItems.findIndex((item) => {
-      return item.id == product.id;
-    });
-    if (cartItems.length) {
-      if (productIndex >= 0) {
-        console.log("this item already added");
+    if (isLogged) {
+      const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
+      const productIndex = cartItems.findIndex((item) => {
+        return item.id === product.id;
+      });
+      if (cartItems.length) {
+        if (productIndex >= 0) {
+          ToastInfo("this item already added");
+        } else {
+          const newCartItems = [...cartItems, product];
+          localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+          ToastSuccess("The product has been added successfully");
+        }
       } else {
-        const newCartItems = [...cartItems, product];
+        const newCartItems = [product];
         localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+        ToastSuccess("The product has been added successfully");
+      }
+      dispatch(cartCount());
+    } else {
+      ToastError("You must be Log in to add products");
+    }
+  };
+
+  const addToFavorites = () => {
+    if (isLogged) {
+      const FavoritesItems =
+        JSON.parse(localStorage.getItem("FavoritesItem")) || [];
+      const productIndex = FavoritesItems.findIndex((item) => {
+        return item.id == product.id;
+      });
+      if (FavoritesItems.length) {
+        if (productIndex >= 0) {
+          console.log("this item already added to Favorites");
+        } else {
+          const newFavoritesItems = [...FavoritesItems, product];
+          localStorage.setItem(
+            "FavoritesItem",
+            JSON.stringify(newFavoritesItems)
+          );
+        }
+      } else {
+        const newFavoritesItems = [product];
+        localStorage.setItem(
+          "FavoritesItem",
+          JSON.stringify(newFavoritesItems)
+        );
       }
     } else {
-      const newCartItems = [product];
-      localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+      ToastError("You must be Log in to add to Favorites");
     }
-    dispatch(cartCount());
+    dispatch(FavoriteCount());
   };
 
   return (
     <section class="prd-details text-gray-700 body-font overflow-hidden bg-white">
+      <ToastContainer />
       <div class="container px-5 py-6 mx-auto">
         <button
           className="prd-details-btn bg-main text-white font-bold py-2 px-4 rounded mb-6"
@@ -147,7 +190,7 @@ const ProductDetails = () => {
                 onClick={() => {
                   addToCart();
                 }}
-                class="text-base leading-none p-5 font-bold bg-main border-main border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white hover:bg-main-hover dark:hover:bg-gray-700"
+                class="text-base leading-none p-5 font-bold bg-main border-main border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white  hover:bg-main-hover dark:hover:bg-gray-700"
               >
                 Add To Cart
               </button>
@@ -173,17 +216,11 @@ const ProductDetails = () => {
                   +
                 </button>
               </div> */}
-              <button class="rounded-full w-10 h-10 bg-main p-0 border-0 inline-flex items-center justify-center text-white ml-4">
-                <svg
-                  fill="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  class="w-5 h-5"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                </svg>
+              <button
+                onClick={addToFavorites}
+                class="fav-icon-btn rounded-full w-10 h-10 p-0 border-0 inline-flex items-center justify-center text-white ml-4"
+              >
+                <AiFillHeart className="fav-icon" />
               </button>
             </div>
           </div>

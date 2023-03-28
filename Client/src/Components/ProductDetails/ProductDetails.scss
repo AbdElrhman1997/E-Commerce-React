@@ -8,6 +8,18 @@
         .prd-desc {
           min-height: 250px;
         }
+        div {
+          .fav-icon-btn {
+            background-color: #ff8f9c;
+            transition: .1s ease-in-out ;
+            .fav-icon {
+              font-size: 32px;
+            }
+            &:hover {
+              color: #ff6173;
+            }
+          }
+        }
       }
     }
   }

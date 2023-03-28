@@ -6,6 +6,7 @@ import { SlHome } from "react-icons/sl";
 import { toggleSideBar } from "../../Store/SideBarSlice";
 import "./MobileNav.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleHeaderMob } from "../../Store/HeaderSlice";
 
 const MobileNav = () => {
   const dispatch = useDispatch();
@@ -13,12 +14,13 @@ const MobileNav = () => {
 
   return (
     <div className="mobile-nav lg:hidden flex">
-      <div
-        onClick={() => {
-          dispatch(toggleSideBar());
-        }}
-      >
-        <RxTextAlignJustify title="Grid" />
+      <div>
+        <RxTextAlignJustify
+          onClick={() => {
+            dispatch(toggleHeaderMob());
+          }}
+          title="Grid"
+        />
       </div>
       <div>
         <SlHome />
@@ -34,7 +36,11 @@ const MobileNav = () => {
         </a>
       </div>
       <div>
-        <BsGrid />
+        <BsGrid
+          onClick={() => {
+            dispatch(toggleSideBar());
+          }}
+        />
       </div>
     </div>
   );
