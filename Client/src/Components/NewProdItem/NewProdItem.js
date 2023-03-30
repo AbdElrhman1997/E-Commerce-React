@@ -6,37 +6,67 @@ import Badge from "../Badge/Badge";
 
 import "./NewProdItem.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { cartCount } from "../../Store/CartSlice";
+import { cartCount, getCartItems, totalPrice } from "../../Store/CartSlice";
 import { FavoriteCount } from "../../Store/FavoriteSlice";
 import { ToastError, ToastInfo, ToastSuccess } from "../Toast/Toast";
 import { isLoggedIn } from "../../Store/AuthSlice";
 
 const NewProdItem = ({ product }) => {
   const [prodImg, setProdImg] = useState(product.imgUrl);
+  const [isInCart, setIsInCart] = useState(false);
+  const [isInFavorites, setIsInFavorites] = useState(false);
+  const cartIcon = useRef();
+  const favIcon = useRef();
   const img = useRef();
   const dispatch = useDispatch();
   const isLogged = useSelector((state) => state.Auth.isLoggedIn);
   useEffect(() => {
     dispatch(isLoggedIn());
-  });
+    if (isLogged) {
+      JSON.parse(localStorage.CartItem).filter((item) => {
+        if (item.id == product.id) {
+          setIsInCart(true);
+        }
+      });
+      JSON.parse(localStorage.FavoritesItem).filter((item) => {
+        if (item.id == product.id) {
+          setIsInFavorites(true);
+        }
+      });
+    }
+  }, [isLogged]);
   const addToCart = () => {
     if (isLogged) {
-      const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
-      const productIndex = cartItems.findIndex((item) => {
-        return item.id === product.id;
-      });
-      if (cartItems.length) {
-        if (productIndex >= 0) {
-          ToastInfo("this item already added");
+      if (!isInCart) {
+        const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
+        const productIndex = cartItems.findIndex((item) => {
+          return item.id === product.id;
+        });
+        if (cartItems.length) {
+          if (productIndex >= 0) {
+            ToastInfo("this item already added");
+          } else {
+            const newCartItems = [...cartItems, product];
+            localStorage.setItem("CartItem", JSON.stringify(newCartItems));
+            ToastSuccess("The product has been added successfully");
+          }
         } else {
-          const newCartItems = [...cartItems, product];
+          const newCartItems = [product];
           localStorage.setItem("CartItem", JSON.stringify(newCartItems));
           ToastSuccess("The product has been added successfully");
         }
+        JSON.parse(localStorage.CartItem).filter((item) => {
+          if (item.id == product.id) {
+            setIsInCart(true);
+          }
+        });
       } else {
-        const newCartItems = [product];
+        const cartItems = JSON.parse(localStorage.getItem("CartItem")) || [];
+        const newCartItems = cartItems.filter((item) => item.id !== product.id);
         localStorage.setItem("CartItem", JSON.stringify(newCartItems));
-        ToastSuccess("The product has been added successfully");
+        ToastSuccess("The product has been removed successfully");
+        cartIcon.current.classList.remove("active");
+        dispatch(cartCount());
       }
       dispatch(cartCount());
     } else {
@@ -46,32 +76,53 @@ const NewProdItem = ({ product }) => {
 
   const addToFavorites = () => {
     if (isLogged) {
-      const FavoritesItems =
-        JSON.parse(localStorage.getItem("FavoritesItem")) || [];
-      const productIndex = FavoritesItems.findIndex((item) => {
-        return item.id == product.id;
-      });
-      if (FavoritesItems.length) {
-        if (productIndex >= 0) {
-          console.log("this item already added to Favorites");
+      if (!isInFavorites) {
+        const FavoritesItems =
+          JSON.parse(localStorage.getItem("FavoritesItem")) || [];
+        const productIndex = FavoritesItems.findIndex((item) => {
+          return item.id == product.id;
+        });
+        if (FavoritesItems.length) {
+          if (productIndex >= 0) {
+            ToastInfo("this item already added");
+          } else {
+            const newFavoritesItems = [...FavoritesItems, product];
+            localStorage.setItem(
+              "FavoritesItem",
+              JSON.stringify(newFavoritesItems)
+            );
+            ToastSuccess(
+              "The product has been added to Favorites successfully"
+            );
+          }
         } else {
-          const newFavoritesItems = [...FavoritesItems, product];
+          const newFavoritesItems = [product];
           localStorage.setItem(
             "FavoritesItem",
             JSON.stringify(newFavoritesItems)
           );
+          ToastSuccess("The product has been added to Favorites successfully");
         }
+        JSON.parse(localStorage.FavoritesItem).filter((item) => {
+          if (item.id == product.id) {
+            setIsInFavorites(true);
+          }
+        });
       } else {
-        const newFavoritesItems = [product];
-        localStorage.setItem(
-          "FavoritesItem",
-          JSON.stringify(newFavoritesItems)
+        const FavoritesItem =
+          JSON.parse(localStorage.getItem("FavoritesItem")) || [];
+        const newFavoritesItem = FavoritesItem.filter(
+          (item) => item.id !== product.id
         );
+        localStorage.setItem("FavoritesItem", JSON.stringify(newFavoritesItem));
+        ToastSuccess("The product has been removed successfully");
+        favIcon.current.classList.remove("active");
+        dispatch(FavoriteCount());
       }
+      dispatch(FavoriteCount());
     } else {
       ToastError("You must be Log in to add to Favorites");
     }
-    dispatch(FavoriteCount());
   };
 
   const changeImage = () => {
@@ -115,7 +166,11 @@ const NewProdItem = ({ product }) => {
           </span>
         </div>
         <div className="showcase-action">
-          <button className="heart" onClick={addToFavorites}>
+          <button
+            className={`heart ${isInFavorites ? `active` : ``}`}
+            onClick={addToFavorites}
+            ref={favIcon}
+          >
             <BsHeart />
           </button>
           <button className="eye">
@@ -123,7 +178,11 @@ const NewProdItem = ({ product }) => {
               <BsEye />
             </a>
           </button>
-          <button className="add" onClick={addToCart}>
+          <button
+            className={`add ${isInCart ? `active` : ``}`}
+            onClick={addToCart}
+            ref={cartIcon}
+          >
             <BsBagPlus />
           </button>
         </div>

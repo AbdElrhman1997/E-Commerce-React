@@ -44,8 +44,8 @@ function Banner() {
               starting at $ <span>20</span>.00
             </p>
             <a
+              className=" inline-block bg-main text-white no-underline hover:bg-blue-800 lg:mt-2 p-2 rounded"
               href="#"
-              class=" inline-block bg-main text-white no-underline hover:bg-blue-800 lg:mt-2 p-2 rounded"
             >
               SHOP NOW
             </a>

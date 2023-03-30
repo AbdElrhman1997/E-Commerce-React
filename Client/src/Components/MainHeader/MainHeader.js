@@ -35,12 +35,22 @@ const MainHeader = () => {
           <TfiSearch className="text-lg text-main-text" />
         </div>
         <div className="icons hidden lg:flex">
-          <div className="favorite" data-favorite={golobalState.Favorite.count}>
+          <div
+            className="favorite"
+            data-favorite={
+              golobalState.Auth.isLoggedIn ? golobalState.Favorite.count : 0
+            }
+          >
             <a href="/favorite">
               <BsHeart />
             </a>
           </div>
-          <div className="card" data-card={golobalState.Cart.count}>
+          <div
+            className="card"
+            data-card={
+              golobalState.Auth.isLoggedIn ? golobalState.Cart.count : 0
+            }
+          >
             <a href="/cart">
               <AiOutlineShoppingCart />
             </a>

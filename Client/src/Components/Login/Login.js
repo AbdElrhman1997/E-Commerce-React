@@ -109,6 +109,15 @@ const Login = () => {
                   Log in
                 </button>
               </div>
+              <div class="mt-6 text-grey-dark">
+                don't have Acount?
+                <a
+                  class="text-blue-600 hover:underline hover:text-main"
+                  href="/register"
+                >
+                  Sign in
+                </a>
+              </div>
             </div>
           </form>
         </div>

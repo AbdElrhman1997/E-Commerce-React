@@ -1,11 +1,16 @@
 
 .banner {
   .owl-carousel {
+    .owl-stage-outer {
+      border-radius: 10px;
+    }
     .banner-item {
       position: relative;
+
       img {
         width: 100%;
         object-fit: cover;
+        min-height: 180px;
       }
       .banner-content {
         position: absolute;
@@ -30,7 +35,7 @@
       }
       a {
         font-size:1.2vw;
-        padding: 3px 5px;
+        padding: 9px;
       }
       a:hover {
         background-color: #ff7c8b;

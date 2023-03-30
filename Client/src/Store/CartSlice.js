@@ -7,7 +7,10 @@ const CartSlice = createSlice({
   initialState,
   reducers: {
     cartCount: (state, action) => {
-      state.count = JSON.parse(localStorage.getItem("CartItem")).length;
+      const CartItems = JSON.parse(localStorage.getItem("CartItem"));
+      if (CartItems && CartItems.length) {
+        state.count = JSON.parse(localStorage.getItem("CartItem")).length;
+      }
     },
     getCartItems: (state, action) => {
       state.items = JSON.parse(localStorage.getItem("CartItem"));

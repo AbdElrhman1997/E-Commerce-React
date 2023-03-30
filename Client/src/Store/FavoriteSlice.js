@@ -7,7 +7,10 @@ const FavoriteSlice = createSlice({
   initialState,
   reducers: {
     FavoriteCount: (state, action) => {
-      state.count = JSON.parse(localStorage.getItem("FavoritesItem")).length;
+      const FavoriteItems = JSON.parse(localStorage.getItem("FavoritesItem"));
+      if (FavoriteItems && FavoriteItems.length) {
+        state.count = JSON.parse(localStorage.getItem("FavoritesItem")).length;
+      }
     },
     getFavoriteItems: (state, action) => {
       state.items = JSON.parse(localStorage.getItem("FavoritesItem"));

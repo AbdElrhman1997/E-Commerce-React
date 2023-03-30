@@ -2,23 +2,25 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import FavoriteItem from "../../Components/FavoriteItem/FavoriteItem";
+import { isLoggedIn } from "../../Store/AuthSlice";
 import { getFavoriteItems } from "../../Store/FavoriteSlice";
 import "./Favorites.scss";
 
 const Favorites = () => {
   const [favoriteItems, setFavoriteItems] = useState([]);
   const dispatch = useDispatch();
-  const FavoriteStates = useSelector((state) => state.Favorite);
+  const globalState = useSelector((state) => state);
   useEffect(() => {
     setFavoriteItems(JSON.parse(localStorage.getItem("FavoritesItem")));
     dispatch(getFavoriteItems());
+    dispatch(isLoggedIn());
   }, []);
 
   return (
     <section className="favorites">
       <ToastContainer />
       <div class="min-h-screen p-4">
-        <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto my-4 sm:px-6 lg:px-8">
           <div
             class="flex items-center text-gray-500 dark:text-white cursor-pointer hover:text-main mb-8"
             onClick={() => {
@@ -47,15 +49,21 @@ const Favorites = () => {
           <h1 class="text-3xl font-bold text-gray-900 mb-6">
             Your Favorite Products
           </h1>
-          {!FavoriteStates.length ? (
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {FavoriteStates.items.map((product) => {
-                return <FavoriteItem product={product} />;
-              })}
-            </div>
+          {globalState.Auth.isLoggedIn ? (
+            !globalState.Favorite.length ? (
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {globalState.Favorite.items.map((product) => {
+                  return <FavoriteItem product={product} />;
+                })}
+              </div>
+            ) : (
+              <div className="text-center font-semibold text-2xl absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2">
+                There is No Favorites
+              </div>
+            )
           ) : (
-            <div className="text-center font-semibold text-2xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              There No Favorites
+            <div className="text-center font-semibold text-2xl absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2">
+              There is No Favorites
             </div>
           )}
         </div>

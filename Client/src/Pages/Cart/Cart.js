@@ -8,7 +8,7 @@ import "./Cart.scss";
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const dispatch = useDispatch();
-  const CartStates = useSelector((state) => state.Cart);
+  const globalState = useSelector((state) => state);
   useEffect(() => {
     setCartItems(JSON.parse(localStorage.getItem("CartItem")));
     dispatch(getCartItems());
@@ -39,7 +39,7 @@ const Cart = () => {
             id="cart"
           >
             <div
-              class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-auto overflow-x-hidden lg:h-screen h-auto"
+              class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:pt-3 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-auto overflow-x-hidden lg:h-screen h-auto"
               id="scroll"
             >
               <div
@@ -70,9 +70,15 @@ const Cart = () => {
               <p class="lg:text-4xl text-3xl font-black leading-10 text-gray-800 dark:text-white pt-3">
                 Bag
               </p>
-              {CartStates.items.map((product) => {
-                return <CartItem product={product} />;
-              })}
+              {globalState.Auth.isLoggedIn ? (
+                globalState.Cart.items.map((product) => {
+                  return <CartItem product={product} />;
+                })
+              ) : (
+                <div className="text-center font-semibold text-2xl flex justify-center items-center h-96 my-8">
+                  <p>There is No Products</p>
+                </div>
+              )}
             </div>
             <div class="lg:w-96 md:w-8/12 w-full bg-gray-100 dark:bg-gray-900 h-full">
               <div class="flex flex-col lg:h-screen h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between overflow-y-auto">
@@ -85,7 +91,7 @@ const Cart = () => {
                       Subtotal
                     </p>
                     <p class="text-base leading-none text-gray-800 dark:text-white">
-                      {CartStates.totalPrice.toFixed(2)}$
+                      {globalState.Cart.totalPrice.toFixed(2)}$
                     </p>
                   </div>
                   <div class="flex items-center justify-between pt-5">
@@ -111,7 +117,7 @@ const Cart = () => {
                       Total
                     </p>
                     <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">
-                      {30 + CartStates.totalPrice}.00$
+                      {30 + globalState.Cart.totalPrice}.00$
                     </p>
                   </div>
                   <button
