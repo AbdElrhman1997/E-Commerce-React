@@ -1,10 +1,8 @@
-import React from "react";
-import bannerImg1 from "../../Assets/Imgs/banner-1.jpg";
-import bannerImg2 from "../../Assets/Imgs/banner-2.jpg";
-import bannerImg3 from "../../Assets/Imgs/banner-3.jpg";
+import React, { useEffect } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { products } from "../../Assets/data/products";
 import "./Banner.scss";
 
 function Banner() {
@@ -15,25 +13,31 @@ function Banner() {
         margin={20}
         items={1}
       >
-        <div className="banner-item">
-          <img src={bannerImg2} className=" lg:h-96 h-full" />
-          <div className="banner-content">
-            <h1 class="text-main text-3xl">Trending Accessories</h1>
-            <p class=" leading-tight font-bold lg:w-2/3 md:w-2/5 w-2/3 lg:my-4 text-5xl">
-              MODERN SUNGLASSES
-            </p>
-            <p class="leading-normal text-xl">
-              starting at $ <span>15</span>.00
-            </p>
-            <a
-              href="#"
-              class=" inline-block bg-main text-white no-underline hover:bg-blue-800 lg:mt-2 p-2 rounded"
-            >
-              SHOP NOW
-            </a>
-          </div>
-        </div>
-        <div className="banner-item">
+        {products[3] &&
+          products[3].map((product, i) => {
+            return (
+              <div className="banner-item" key={i}>
+                <img src={product.bannerImg} className=" lg:h-96 h-full" />
+                <div className="banner-content">
+                  <h1 class="text-main text-3xl">Trending Item</h1>
+                  <p class=" leading-tight font-bold lg:w-2/3 md:w-2/5 w-2/3 lg:my-4 text-5xl">
+                    {product.title}
+                  </p>
+                  <p class="leading-normal text-xl">
+                    starting at ${" "}
+                    <span>{parseInt(product.price).toFixed(2)}</span>
+                  </p>
+                  <a
+                    className=" inline-block bg-main text-white no-underline hover:bg-main-hover mt-2 rounded"
+                    href={`/productdetails/${product.id}`}
+                  >
+                    SHOP NOW
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        {/* <div className="banner-item">
           <img src={bannerImg1} className=" lg:h-96 h-full" />
           <div className="banner-content">
             <h1 class="text-main text-3xl">Trending Item</h1>
@@ -68,7 +72,7 @@ function Banner() {
               SHOP NOW
             </a>
           </div>
-        </div>
+        </div> */}
       </OwlCarousel>
       {/* <div class="absolute px-10 inset-0 h-auto z-10">
         <img src={bannerImg} alt="" class="banner-img" />

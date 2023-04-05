@@ -2,15 +2,13 @@ import React from "react";
 import CarouselItem from "../CarouselItem/CarouselItem";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
-import ctgItem1 from "../../Assets/Imgs/Carousel1.svg";
-import ctgItem2 from "../../Assets/Imgs/Carousel2.svg";
-import ctgItem3 from "../../Assets/Imgs/Carousel3.svg";
-import ctgItem4 from "../../Assets/Imgs/Carousel4.svg";
-import ctgItem5 from "../../Assets/Imgs/Carousel5.svg";
-import ctgItem6 from "../../Assets/Imgs/Carousel6.svg";
-import ctgItem7 from "../../Assets/Imgs/Carousel7.svg";
-import ctgItem8 from "../../Assets/Imgs/Carousel8.svg";
-
+import ctgItem1 from "../../Assets/Imgs/Products/dress.svg";
+import ctgItem2 from "../../Assets/Imgs/Products/shoes.svg";
+import ctgItem3 from "../../Assets/Imgs/Products/jewelry.svg";
+import ctgItem4 from "../../Assets/Imgs/Products/perfume.svg";
+import ctgItem5 from "../../Assets/Imgs/Products/cosmetics.svg";
+import ctgItem6 from "../../Assets/Imgs/Products/glasses.svg";
+import ctgItem7 from "../../Assets/Imgs/Products/smart-watch-cartoon_78370-592.avif";
 import { Navigation, Scrollbar, A11y, EffectFade, Grid } from "swiper";
 
 import "swiper/scss";
@@ -25,14 +23,13 @@ const Carousel = () => {
   const swiper = useSwiper();
   SwiperCore.use([Keyboard, Mousewheel]);
   const slides = [
-    { imgUrl: ctgItem1, title: "DRESS & FROCK", count: 53 },
-    { imgUrl: ctgItem2, title: "WINTER WEAR", count: 58 },
-    { imgUrl: ctgItem3, title: "GLASSES & LENS", count: 68 },
-    { imgUrl: ctgItem4, title: "SHORTS & JEANS", count: 74 },
-    { imgUrl: ctgItem5, title: "T-SHIRTS", count: 29 },
-    { imgUrl: ctgItem6, title: "JACKET", count: 35 },
-    { imgUrl: ctgItem7, title: "WATCH", count: 20 },
-    { imgUrl: ctgItem8, title: "HAT & CAPS", count: 15 },
+    { imgUrl: ctgItem1, title: "Clothes", count: 53 },
+    { imgUrl: ctgItem2, title: "Footwear", count: 58 },
+    { imgUrl: ctgItem3, title: "Jewellery", count: 68 },
+    { imgUrl: ctgItem4, title: "Perfume", count: 74 },
+    { imgUrl: ctgItem5, title: "Cosmetics", count: 20 },
+    { imgUrl: ctgItem6, title: "Glasses", count: 29 },
+    { imgUrl: ctgItem7, title: "Watches", count: 35 },
   ];
 
   //   const handleMouseWheel=( function (e) {

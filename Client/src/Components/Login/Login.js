@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Login.scss";
+import MobileNav from "../MoblieNav/MobileNav";
+import MobileSideBar from "../MobileSideBar/MobileSideBar";
+import MobileHeader from "../MobileHeader/MobileHeader";
+import Overlay from "../Overlay/Overlay";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -63,7 +67,11 @@ const Login = () => {
 
   return (
     <section className="login">
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <MobileNav />
+      <MobileSideBar />
+      <MobileHeader />
+      <Overlay />
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 pb-24">
         <div class="my-10 px-8 py-6 mx-4 text-left bg-white shadow-lg md:w-2/5 lg:w-1/3 sm:w-3/4 w-4/5">
           <h3 class="text-2xl font-bold text-center">Sign Up</h3>
           <form onSubmit={handleSubmit} action="get">

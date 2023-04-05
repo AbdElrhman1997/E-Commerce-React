@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import imgSide1 from "../../Assets/Imgs/Products/dress.svg";
 import imgSide2 from "../../Assets/Imgs/Products/shoes.svg";
 import imgSide3 from "../../Assets/Imgs/Products/jewelry.svg";
@@ -14,14 +14,96 @@ import { toggleSideBar } from "../../Store/SideBarSlice";
 import { AiOutlineClose } from "react-icons/ai";
 import { IoMdArrowDropleft, IoMdArrowDropdown } from "react-icons/io";
 import { TbWorld } from "react-icons/tb";
-
 import { toggleHeaderMob } from "../../Store/HeaderSlice";
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import { isLoggedIn } from "../../Store/AuthSlice";
+import { BsPerson } from "react-icons/bs";
+import { BiLogIn } from "react-icons/bi";
 
 const MobileHeader = () => {
   const dispatch = useDispatch();
   const globalState = useSelector((state) => state);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isCurnOpen, setIsCurnOpen] = useState(false);
+  const golobalState = useSelector((state) => state);
+  useEffect(() => {
+    dispatch(isLoggedIn());
+  }, []);
+
+  const SideBarItems = [
+    {
+      title: "Home",
+      content: [],
+    },
+    {
+      title: "Men'S",
+      content: [
+        { product: "Clothes", count: "6", Url: "/categories/Clothes/Men" },
+        { product: "Watches", count: "1", Url: "/categories/Watches/Smart" },
+        { product: "Footwear", count: "3", Url: "/categories/Footwear/Formal" },
+        { product: "Belt", count: "1", Url: "/categories/Clothes/Belt" },
+      ],
+    },
+    {
+      title: "Women'S",
+      content: [
+        {
+          product: "Clothes",
+          count: "4",
+          Url: "/categories/Clothes/Women",
+        },
+        {
+          product: "Earrings",
+          count: "1",
+          Url: "/categories/Jewellery/Earrings",
+        },
+        {
+          product: "Couple Rings",
+          count: "1",
+          Url: "/categories/Jewellery/Couple Rings",
+        },
+        {
+          product: "Necklace",
+          count: "1",
+          Url: "/categories/Jewellery/Necklace",
+        },
+      ],
+    },
+    {
+      title: "Accessories",
+      content: [
+        { product: "Jewellery", count: "1", Url: "/categories/Jewellery" },
+        { product: "Watches", count: "1", Url: "/categories/Watches" },
+        { product: "Belts", count: "1", Url: "/categories/Clothes/Belt" },
+        { product: "Hats", count: "1", Url: "/categories/Clothes/Hats" },
+      ],
+    },
+    {
+      title: "Perfume",
+      content: [
+        {
+          product: "Titan",
+          count: "1",
+          Url: "/categories/Perfume/Titan",
+        },
+      ],
+    },
+    {
+      title: "Hot Offers",
+      content: [
+        {
+          product: "Shampoo",
+          count: "1",
+          Url: "/categories/Cosmetics/Shampoo",
+        },
+      ],
+    },
+  ];
 
   return (
     <section
@@ -42,75 +124,55 @@ const MobileHeader = () => {
             <AiOutlineClose className=" cursor-pointer" />
           </div>
         </div>
+        {SideBarItems.map((item, i) => {
+          return (
+            <SideBarItem key={i} title={item.title} content={item.content} />
+          );
+        })}
 
-        <SideBarItem
-          title="Clothes"
-          imgUrl={imgSide1}
-          content={[
-            { product: "Shirt", count: "300" },
-            { product: "Shorts & Jeans", count: "60" },
-            { product: "Jacket & Jeans", count: "50" },
-            { product: "Dress & Frock", count: "87" },
-          ]}
-        />
-        <SideBarItem
-          title="Footwear"
-          imgUrl={imgSide2}
-          content={[
-            { product: "Sports", count: "45" },
-            { product: "Formal", count: "75" },
-            { product: "Casual", count: "35" },
-            { product: "Safety Shoes", count: "26" },
-          ]}
-        />
-        <SideBarItem
-          title="jewelry"
-          imgUrl={imgSide3}
-          content={[
-            { product: "Earrings", count: "46" },
-            { product: "Couple Rings", count: "73" },
-            { product: "Necklace", count: "50" },
-          ]}
-        />
-        <SideBarItem
-          title="Perfume"
-          imgUrl={imgSide4}
-          content={[
-            { product: "Clothes Perfume", count: "12" },
-            { product: "Deodorant", count: "60" },
-            { product: "Jacket", count: "50" },
-            { product: "Dress & Frock", count: "87" },
-          ]}
-        />
-        <SideBarItem
-          title="Cosmetics"
-          imgUrl={imgSide5}
-          content={[
-            { product: "Shampoo", count: "30" },
-            { product: "Sunscreen", count: "60" },
-            { product: "Body Wash", count: "50" },
-            { product: "Makeup Kit", count: "23" },
-          ]}
-        />
-        <SideBarItem
-          title="Glasses"
-          imgUrl={imgSide6}
-          content={[
-            { product: "Sunglasses", count: "50" },
-            { product: "Lenses", count: "37" },
-          ]}
-        />
-        <SideBarItem
-          title="Bags"
-          imgUrl={imgSide7}
-          content={[
-            { product: "Shopping Bag", count: "62" },
-            { product: "Gym Backpack", count: "85" },
-            { product: "Purse", count: "50" },
-            { product: "Wallet", count: "30" },
-          ]}
-        />
-        <div className="lang">
+        <button className="btn-side font-bold py-2 px-4 rounded mt-20 ">
+          {golobalState.Auth.isLoggedIn ? (
+            <div className="profile">
+              <a href="/profile">
+                <p>Profile</p>
+                <BsPerson className="text-xl mx-2" />
+              </a>
+            </div>
+          ) : (
+            <div className="log-in" data-card={golobalState.Cart.count}>
+              <a href="/login">
+                <p>Sign In</p>
+                <BiLogIn className="text-xl mx-2" />
+              </a>
+            </div>
+          )}
+        </button>
+        <div className="icons">
+          <a href="" target="_blank">
+            <FaFacebook />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/abdelrhman-mohamed-73215022a/"
+            target="_blank"
+          >
+            <FaLinkedinIn />
+          </a>
+          <a href="github.com/AbdElrhman1997" target="_blank">
+            <FaGithub />
+          </a>
+          <a href="https://abdelrahmanm.com/" target="_blank">
+            <TbWorld />
+          </a>
+        </div>
+      </aside>
+    </section>
+  );
+};
+
+export default MobileHeader;
+
+{
+  /* <div className="lang">
           <div className="catgory-head">
             <div>
               <div className="text-main-text font-semibold">Language</div>
@@ -131,8 +193,10 @@ const MobileHeader = () => {
             <li>Arabic</li>
             <li>English</li>
           </ul>
-        </div>
-        <div className="currency">
+        </div> */
+}
+{
+  /* <div className="currency">
           <div className="catgory-head">
             <div>
               <div className="text-main-text font-semibold">Currency</div>
@@ -153,10 +217,5 @@ const MobileHeader = () => {
             <li>USD $</li>
             <li>EUR €</li>
           </ul>
-        </div>
-      </aside>
-    </section>
-  );
-};
-
-export default MobileHeader;
+        </div> */
+}

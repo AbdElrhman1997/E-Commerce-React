@@ -8,7 +8,7 @@ import "./OurServices.scss";
 
 const OurServices = () => {
   return (
-    <section className="our-services w-1/2">
+    <section className="our-services">
       <p className="m-auto text-lg font-semibold">Our Services</p>
       <hr className="mb-5 mt-2 m-auto bg-main-white" />
       <div className="lg:block flex">

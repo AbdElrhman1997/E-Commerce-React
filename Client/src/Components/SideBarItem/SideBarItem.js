@@ -13,17 +13,27 @@ const SideBarItem = ({ title, imgUrl, content }) => {
     <div className="catgory-item">
       <div className="catgory-head" onClick={handleDisplay}>
         <div>
-          <img src={imgUrl} />
-          <div className="ml-3 text-main-text font-semibold">{title}</div>
+          {imgUrl && <img src={imgUrl} className="mr-3" />}
+          <div className="text-main-text font-semibold hover:text-main">
+            {title}
+          </div>
         </div>
-        {isOpen ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        {content.length ? (
+          isOpen ? (
+            <AiOutlineMinus className="hover:text-main" />
+          ) : (
+            <AiOutlinePlus className="hover:text-main" />
+          )
+        ) : null}
       </div>
       <ul className={isOpen ? "dropdown fadeDown" : "dropdown fadeUp"}>
         {content.map((product, i) => {
           return (
             <li key={i}>
-              <p>{product.product}</p>
-              <p>{product.count}</p>
+              <a href={product.Url}>
+                <p>{product.product}</p>
+                <p>{product.count}</p>
+              </a>
             </li>
           );
         })}

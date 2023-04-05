@@ -1,29 +1,73 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./Store/index";
-import "./index.css";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import Cart from "./Pages/Cart/Cart";
 import Favorites from "./Pages/Favorites/Favorites";
-import { ToastContainer } from "react-toastify";
 import Profile from "./Pages/Profile/Profile";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
+import "./index.css";
+import Categories from "./Pages/Categories/Categories";
+import NewProdItem from "./Components/NewProdItem/NewProdItem";
+import DealOfDay from "./Components/DealOfDay/DealOfDay";
+import CtgProduct from "./Components/CtgProduct/CtgProduct";
 
-const routes = createBrowserRouter([
+// const globalState = useSelector((state) => state);
+// const routesNotLogged = createBrowserRouter([
+//   {
+//     index: true,
+//     element: <App />,
+//   },
+//   {
+//     path: "/productdetails/:id",
+//     element: <ProductDetails />,
+//   },
+//   {
+//     path: "/cart",
+//     element: <Cart />,
+//   },
+//   {
+//     path: "/favorite",
+//     element: <Favorites />,
+//   },
+//   {
+//     path: "/register",
+//     element: <Register />,
+//   },
+//   {
+//     path: "/login",
+//     element: <Login />,
+//   },
+//   {
+//     path: "/categories/",
+//     element: <Categories />,
+//     children: [
+//       {
+//         path: ":ctg/:supCtg",
+//         element: <CtgProduct />,
+//       },
+//       {
+//         path: ":ctg",
+//         element: <CtgProduct />,
+//       },
+//     ],
+//   },
+// ]);
+const routesLogged = createBrowserRouter([
   {
     index: true,
     element: <App />,
   },
   {
-    path: "productdetails/:id",
+    path: "/productdetails/:id",
     element: <ProductDetails />,
   },
   {
-    path: "cart",
+    path: "/cart",
     element: <Cart />,
   },
   {
@@ -42,11 +86,25 @@ const routes = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/categories/",
+    element: <Categories />,
+    children: [
+      {
+        path: ":ctg/:supCtg",
+        element: <CtgProduct />,
+      },
+      {
+        path: ":ctg",
+        element: <CtgProduct />,
+      },
+    ],
+  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <RouterProvider router={routes}>
+    <RouterProvider router={routesLogged}>
       <App />
     </RouterProvider>
   </Provider>

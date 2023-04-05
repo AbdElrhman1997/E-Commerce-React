@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import "./Profile.scss";
+import MobileNav from "../../Components/MoblieNav/MobileNav";
 
 const Profile = () => {
   const [user, setUser] = useState({});
@@ -85,6 +86,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
+      <MobileNav />
     </section>
   );
 };

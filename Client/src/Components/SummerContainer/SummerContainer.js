@@ -6,7 +6,7 @@ import "./SummerContainer.scss";
 
 const SummerContainer = () => {
   return (
-    <section className="summer-container container lg:flex justify-around">
+    <section className="summer-container container lg:flex justify-around mx-auto w-fit">
       <Testimonial />
       <SummerCollection />
       <OurServices />

@@ -22,12 +22,20 @@
     margin-top: -10px;
     padding-bottom: 8px;
     li {
-      transition:height 0.5s ease-in-out ;
-      -webkit-transition:height 0.5s ease-in-out ;
-      margin: 5px 0;
-      color: #787878;
-      display: flex;
-      justify-content: space-between;
+      a {
+        transition:height 0.5s ease-in-out ;
+        -webkit-transition:height 0.5s ease-in-out ;
+        margin: 5px 0;
+        color: #787878;
+        display: flex;
+        justify-content: space-between;
+        p {
+          font-weight: 400;
+        }
+        &:hover :first-child{
+          color: black;
+        }
+      }
     }
   }
   .fadeUp{

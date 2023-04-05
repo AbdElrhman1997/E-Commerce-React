@@ -10,7 +10,9 @@ const CarouselItem = ({ imgUrl, title, count }) => {
       <div className="category-content">
         <p>{title}</p>
         <div className=" text-main" href="#">
-          Show All
+          <a href={`/categories/${title}`} className="hover:text-main-hover">
+            Show All
+          </a>
         </div>
       </div>
     </div>

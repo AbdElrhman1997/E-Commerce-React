@@ -5,7 +5,7 @@ import "./Testimonial.scss";
 
 const Testimonial = () => {
   return (
-    <section className="testimonial w-1/2">
+    <section className="testimonial">
       <p className="m-auto text-lg font-semibold">Testimonial</p>
       <hr className="mb-5 mt-2 m-auto bg-main-white" />
       <div>

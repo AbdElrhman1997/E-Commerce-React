@@ -63,12 +63,12 @@ const CartItem = ({ product }) => {
         />
       </div>
       <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
-        <p class="text-sm leading-3 font-bold text-main dark:text-white md:pt-0 pt-4">
-          {product.category}
+        <p class="text-base font-semibold leading-none text-gray-800 dark:text-white">
+          {product.title}
         </p>
         <div class="flex items-center justify-between w-full pt-1">
-          <p class="text-base font-semibold leading-none text-gray-800 dark:text-white">
-            {product.title}
+          <p class="text-sm leading-3 font-bold text-main dark:text-white md:pt-0 pt-4">
+            {product.category}
           </p>
           <select
             aria-label="Select quantity"

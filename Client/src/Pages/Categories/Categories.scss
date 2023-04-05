@@ -1,0 +1,12 @@
+.categories {
+  div {
+    .new-products {
+      margin-bottom: 40px;
+      .new-products-container {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

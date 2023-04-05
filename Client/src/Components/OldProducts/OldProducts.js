@@ -41,6 +41,7 @@ const OldProducts = () => {
                   category={product.category}
                   price={product.price}
                   disCount={product.disCount}
+                  supCtg={product.supCtg}
                 />
               </SwiperSlide>
             );
@@ -78,6 +79,7 @@ const OldProducts = () => {
                   category={product.category}
                   price={product.price}
                   disCount={product.disCount}
+                  supCtg={product.supCtg}
                 />
               </SwiperSlide>
             );
@@ -115,6 +117,7 @@ const OldProducts = () => {
                   category={product.category}
                   price={product.price}
                   disCount={product.disCount}
+                  supCtg={product.supCtg}
                 />
               </SwiperSlide>
             );

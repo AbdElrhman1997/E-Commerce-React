@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import test from "../../Assets/Imgs/Products/jacket-1.jpg";
-
 import { FaArrowLeft } from "react-icons/fa";
-import "./ProductDetails.scss";
 import { useParams } from "react-router-dom";
 import { cartCount } from "../../Store/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,11 +10,12 @@ import { FavoriteCount } from "../../Store/FavoriteSlice";
 import { ToastContainer } from "react-toastify";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
+import "./ProductDetails.scss";
+
 const ProductDetails = () => {
   const handleBackButtonClick = () => {
     window.history.back();
   };
-
   const [count, setCount] = useState(0);
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -33,6 +31,7 @@ const ProductDetails = () => {
       })
     );
     dispatch(isLoggedIn());
+    // check price condition
   }, [product]);
 
   function addProduct() {
@@ -180,11 +179,13 @@ const ProductDetails = () => {
                 <span class="text-gray-600 ml-3">5 Reviews</span>
               </span>
             </div>
-            <p class="prd-desc leading-relaxed my-6">{product.desc}</p>
+            <p class=" font-semibold">{product.category}</p>
+
+            <p class="prd-desc leading-relaxed my-1">{product.desc}</p>
 
             <div class="flex justify-between items-center">
               <div class="title-font font-medium text-2xl text-gray-900">
-                {product.price}$
+                {parseInt(product.price).toFixed(2)}$
               </div>
               <button
                 onClick={() => {

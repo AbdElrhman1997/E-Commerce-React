@@ -17,6 +17,9 @@
   z-index: 201;
   div {
     cursor: pointer;
+    &:hover a {
+      opacity:.7;
+    }
   }
   .card,.favorite
     {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import CartItem from "../../Components/CartItem/CartItem";
+import { isLoggedIn } from "../../Store/AuthSlice";
 import { getCartItems, totalPrice } from "../../Store/CartSlice";
 import "./Cart.scss";
 
@@ -13,6 +14,8 @@ const Cart = () => {
     setCartItems(JSON.parse(localStorage.getItem("CartItem")));
     dispatch(getCartItems());
     dispatch(totalPrice());
+    dispatch(isLoggedIn());
+    console.log(cartItems);
   }, []);
 
   return (
@@ -71,14 +74,21 @@ const Cart = () => {
                 Bag
               </p>
               {globalState.Auth.isLoggedIn ? (
-                globalState.Cart.items.map((product) => {
-                  return <CartItem product={product} />;
-                })
+                globalState.Cart.items.length ? (
+                  globalState.Cart.items.map((product) => {
+                    return <CartItem product={product} />;
+                  })
+                ) : (
+                  <div className="text-center font-semibold text-2xl flex justify-center items-center h-96 my-8">
+                    <p>There is No Products</p>
+                  </div>
+                )
               ) : (
                 <div className="text-center font-semibold text-2xl flex justify-center items-center h-96 my-8">
                   <p>There is No Products</p>
                 </div>
               )}
+              {console.log(globalState.Auth.isLoggedIn)}
             </div>
             <div class="lg:w-96 md:w-8/12 w-full bg-gray-100 dark:bg-gray-900 h-full">
               <div class="flex flex-col lg:h-screen h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between overflow-y-auto">

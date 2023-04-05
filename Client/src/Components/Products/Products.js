@@ -11,7 +11,7 @@ const Products = () => {
     <section className="products container">
       <div className="grid grid-cols-12">
         <div className="side-container lg:col-span-3 lg:block hidden">
-          <SideBar />
+          <SideBar bestSeller={true} />
         </div>
         <div className="product-minmal lg:col-span-9 col-span-12 grid grid-cols-9">
           <div className="col-span-12">

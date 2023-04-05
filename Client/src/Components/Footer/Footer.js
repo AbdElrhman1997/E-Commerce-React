@@ -10,28 +10,45 @@ const Footer = () => {
   return (
     <footer className="footer p-8 lg:pb-0 pb-20">
       <div className="container">
-        <p className="text-main font-bold mt-2">BRAND DIRECTORY</p>
-        <p className="text-main-text my-4 leading-8">
-          <span className="font-bold mr-3 ">FASHION :</span> T-Shirt | Shirts |
-          Shorts & Jeans | Jacket | Dress & Frock | Innerwear | Hosiery
-        </p>
-        <p className="text-main-text my-4 leading-8">
-          <span className="font-bold mr-3">FOOTWEAR :</span>
-          Sport | Formal | Boots | Casual | Cowboy Shoes | Safety Shoes | Party
-          Wear Shoes | Branded | Firstcopy | Long Shoes
-        </p>
-        <p className="text-main-text my-4 leading-8">
-          <span className="font-bold mr-3">JEWELLERY :</span>
-          Necklace | Earrings | Couple Rings | Pendants | Crystal | Bangles |
-          Bracelets | Nosepin | Chain | Earrings | Couple Rings
-        </p>
-        <p className="text-main-text mt-4 mb-10 leading-8">
-          <span className="font-bold mr-3">COSMETICS :</span> Shampoo Bodywash |
-          Facewash | Makeup Kit | Liner | Lipstick | Prefume | Body Soap | Scrub
-          | Hair Gel | Hair Colors | Hair Dye | Sunscreen Skin Loson | Liner |
-          Lipstick
-        </p>
-
+        <p className="text-main font-bold mt-2">Fast Links</p>
+        <div className="flex flex-wrap justify-between">
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Clothes :</span>
+            <a href="/categories/Clothes/Men">Men'S</a> |
+            <a href="/categories/Clothes/Women"> Women'S</a> |
+            <a href="/categories/Clothes/Belt"> Belts</a> |
+            <a href="/categories/Clothes/Hat"> Hats</a>
+          </p>
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Footwear :</span>
+            <a href="/categories/Footwear/Sports">Sports</a> |
+            <a href="/categories/Footwear/Formal"> Formal</a> |
+            <a href="/categories/Footwear/Casual"> Casual</a>
+          </p>
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Jewellery :</span>
+            <a href="/categories/Jewellery/Earrings"> Earrings</a> |
+            <a href="/categories/Jewellery/Couple Rings"> Couple Rings</a> |
+            <a href="/categories/Jewellery/Necklace"> Necklace</a>
+          </p>
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Perfume :</span>
+            <a href="/categories/Perfume/Titan"> Titan</a>
+          </p>
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Cosmetics :</span>
+            <a href="/categories/Cosmetics/Belt"> Shampoo</a>
+          </p>
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Glasses :</span>
+            <a href="/categories/Glasses/SunGlasses"> SunGlasses</a>
+          </p>
+          <p className="text-main-text my-4 leading-8">
+            <span className="font-bold mr-3 ">Watches :</span>
+            <a href="/categories/Watches/Smart"> Smart</a> |
+            <a href="/categories/Watches/Pocket"> Pocket</a>
+          </p>
+        </div>
         <div className="details">
           <div className="group">
             <p className="group-head">POPULAR CATEGORIES</p>
