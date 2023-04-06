@@ -22,16 +22,18 @@ const NewProdItem = ({ product }) => {
   useEffect(() => {
     dispatch(isLoggedIn());
     if (isLogged) {
-      JSON.parse(localStorage.CartItem).filter((item) => {
-        if (item.id == product.id) {
-          setIsInCart(true);
-        }
-      });
-      JSON.parse(localStorage.FavoritesItem).filter((item) => {
-        if (item.id == product.id) {
-          setIsInFavorites(true);
-        }
-      });
+      if (localStorage.CartItem) {
+        JSON.parse(localStorage.CartItem).filter((item) => {
+          if (item.id == product.id) {
+            setIsInCart(true);
+          }
+        });
+        JSON.parse(localStorage.FavoritesItem).filter((item) => {
+          if (item.id == product.id) {
+            setIsInFavorites(true);
+          }
+        });
+      }
     }
   }, [isLogged]);
   const addToCart = () => {

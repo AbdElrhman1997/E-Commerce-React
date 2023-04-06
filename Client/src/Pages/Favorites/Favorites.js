@@ -50,7 +50,7 @@ const Favorites = () => {
             Your Favorite Products
           </h1>
           {globalState.Auth.isLoggedIn ? (
-            !globalState.Favorite.length ? (
+            globalState.Favorite && globalState.Favorite.items.length ? (
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {globalState.Favorite.items.map((product) => {
                   return <FavoriteItem product={product} />;

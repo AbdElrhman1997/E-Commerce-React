@@ -74,7 +74,7 @@ const Cart = () => {
                 Bag
               </p>
               {globalState.Auth.isLoggedIn ? (
-                globalState.Cart.items.length ? (
+                globalState.Cart.items && globalState.Cart.items.length ? (
                   globalState.Cart.items.map((product) => {
                     return <CartItem product={product} />;
                   })

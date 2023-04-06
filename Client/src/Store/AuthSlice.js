@@ -8,11 +8,12 @@ const AuthSlice = createSlice({
   reducers: {
     isLoggedIn: (state, action) => {
       const user = JSON.parse(localStorage.getItem("user"));
-      if (user && user.token) {
+      if (user) {
         state.isLoggedIn = true;
       } else {
         state.isLoggedIn = false;
       }
+      console.log(user);
     },
   },
 });
